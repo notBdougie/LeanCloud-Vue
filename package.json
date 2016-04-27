@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "description": "Server side code of Aurora.",
   "main": "app/main.js",
-  "author": "Zhuyiteng",
+  "author": {
+    "name": "Zhuyiteng",
+    "email": "zhuyiteng@jd.com"
+  },
   "license": "MIT",
   "engines": {
     "node": ">=4.0.0"

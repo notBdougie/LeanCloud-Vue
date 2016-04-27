@@ -7,7 +7,6 @@
         "node_modules",
         "dist",
         "scripts",
-        "config",
-        "typings"
+        "config"
     ]
 }

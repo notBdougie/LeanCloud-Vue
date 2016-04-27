@@ -37,7 +37,7 @@ app.use(AV.Cloud.CookieSession({ secret: config.secret, maxAge: 3600000 * 24 * 5
 require('./routes')(app)
 
 // error handlers
-app.use(function(err, req, res, next) { // jshint ignore:line
+app.use(function(err, req, res) { // jshint ignore:line
 
   var statusCode, message
 

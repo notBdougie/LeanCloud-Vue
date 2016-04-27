@@ -1,12 +1,12 @@
-var AV = require('leanengine')
-var config = require('../lib/config')
+const AV = require('leanengine')
+const config = require('../lib/config')
 
 exports.msgByUser = function(object) {
-  var message = object.message
-  var user = object.user
+  let message = object.message
+  let user = object.user
   console.log('push notification: user: ', user.id, 'message: ', message)
   
-  var prod = config.env === 'development' ? 'dev' : 'prod'
+  const prod = config.env === 'development' ? 'dev' : 'prod'
   
   AV.Push.send({
     cql: "select * from _Installation where atUser='" + user.id + "'",

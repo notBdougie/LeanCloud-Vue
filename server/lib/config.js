@@ -3,8 +3,10 @@ const _ = require('lodash')
 
 const env = process.env.NODE_ENV
 
+/* eslint-disable */
 if (!env)
   throw "NODE_ENV is required."
+/* eslint-enable */
 
 const config = _.merge({
   env: env,
