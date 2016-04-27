@@ -1,0 +1,63 @@
+{
+  "name": "project-aurora",
+  "version": "0.0.1",
+  "description": "Server side code of Aurora.",
+  "main": "app/main.js",
+  "author": "Zhuyiteng",
+  "license": "MIT",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "scripts": {
+    "dev": "PORT=6100 NODE_ENV=development node-dev server",
+    "build": "./node_modules/.bin/babel-node node_modules/webpack/bin/webpack.js --config webpack.production.config.js --production",
+    "stage": "npm run build & PORT=6101 NODE_ENV=stage node-dev server",
+    "deploy": "npm run build & ./deploy.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "riot",
+    "webpack"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^6.3.3",
+    "autoprefixer-loader": "^3.2.0",
+    "babel": "^6.3.26",
+    "babel-cli": "^6.7.7",
+    "babel-core": "^6.4.0",
+    "babel-eslint": "^6.0.4",
+    "babel-loader": "^6.2.1",
+    "babel-plugin-transform-object-rest-spread": "^6.6.5",
+    "babel-preset-es2015-node4": "^2.1.0",
+    "babel-preset-es2015-riot": "^1.0.4",
+    "babel-register": "^6.7.2",
+    "css-loader": "^0.23.1",
+    "eslint": "^2.8.0",
+    "file-loader": "^0.8.5",
+    "html-loader": "^0.4.3",
+    "html-webpack-plugin": "^2.10.0",
+    "node-sass": "^3.4.2",
+    "riot": "^2.3.12",
+    "riotjs-loader": "^1.2.0",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.0",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.10",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.10.0",
+    "webpack-md5-hash": "0.0.5"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "config": "^1.20.1",
+    "cookie-parser": "^1.4.1",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "js-yaml": "^3.6.0",
+    "leanengine": "^0.4.0",
+    "lodash": "^4.11.1",
+    "moment": "^2.13.0",
+    "morgan": "^1.7.0",
+    "request": "^2.72.0"
+  }
+}
