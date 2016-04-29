@@ -1,0 +1,87 @@
+user:
+  - nickname: 谢霆锋
+    bio: 大明星
+    avatar: http://p.3761.com/pic/46901387331999.jpg
+    username: nick
+  - nickname: 霆锋粉丝1
+    bio: 努力工作，天天向上
+    username: nickfans1
+  - nickname: 霆锋粉丝2
+    bio: 努力工作，天天向上
+    username: nickfans2
+  - nickname: 周杰伦
+    bio: 歌手
+    avatar: http://b.hiphotos.baidu.com/zhidao/pic/item/cf1b9d16fdfaaf5142466bf68c5494eef11f7ad6.jpg
+    username: jay
+  - nickname: 杰伦粉丝1
+    bio: 努力工作，天天向上
+    username: jayfans1
+  - nickname: 杰伦粉丝2
+    bio: 努力工作，天天向上
+    username: jayfans2
+
+follow:
+  - username: nick
+    followers:
+      - username: nickfans1
+      - username: nickfans2
+  - username: jay
+    followers:
+      - username: jayfans1
+      - username: jayfans2
+      
+channel: 
+  - key: UI
+    name: 视觉
+    descMap:
+      intro: 视觉与UI
+      news: UI 世界最新的新闻和技巧都在这里。
+      discuss: 分享、探索与视觉相关的地方。
+      activity: 看大牛们都在看什么。
+      calendar: 业界日历 - 关注行业的活动与事件。
+  - key: UX
+    name: 交互
+    descMap:
+      intro: 人与计算平面的交互
+      news: 与交互、用户体验相关的新闻都在这里。
+      discuss: 分享、探索与交互相关的地方。
+      activity: 看大牛们都在看什么。
+      calendar: 业界日历 - 关注行业的活动与事件。
+  
+news:
+  - contentType: STORY
+    author: 站酷
+    isOriginal: false
+    title: 皮克斯教给我们的22条改善用户体验的原则
+    url: http://www.zcool.com.cn/article/ZMzk2Nzg4.html
+    excerpt: |
+      皮克斯动画工作室（Pixar Animation Studios）创作了《玩具总动员》、《海底总动员》、《头脑特工队》等经典3D动画电影。
+    state: LIVE
+    likedUsers: ['nick', 'jay']
+    channels: ['UI', 'UX']
+    image: http://img.zcool.cn/community/0204fe56f7fe456ac7257948d86bc0.jpg 
+    text: |
+      <div class="workContentWrapper borderTop">
+        <div class="workContent layout f16 c666" style="line-height:30px;width:800px">
+          <!--这里是编辑器内容-->
+          <p style="text-align: center;"><img src="http://img.zcool.cn/community/0204fe56f7fe456ac7257948d86bc0.jpg" alt="968d56f7fe456ac725794831ce50.jpg"></p><p><br></p><p>&nbsp;<br></p><p><br></p><p>火鱼注：皮克斯动画工作室（Pixar Animation Studios），简称皮克斯。1986年，在史蒂夫·乔布斯以1000万入主以后，创作了《玩具总动员》、《海底总动员》、《头脑特工队》等经典3D动画电影。2006年，皮克斯被迪士尼以74亿美元收购，成为华特迪士尼公司的一部分。</p><p><br></p><p><br></p><p>几年前，Emma&nbsp;Coats在Twitter分享了她作为皮克斯（Pixar）分镜艺术家期间所学习到的，关于讲述故事的22条规则。</p><p><br></p><p>这些规则是“由在皮克斯（Pixar）的导演们和同事们那里学到的，通过听编剧们和导演们谈论他们的作品，以及制作我自己的电影时的试验和错误中学到的各种东西融合而成”她后面在一篇博客文章里写道。</p><p>&nbsp;</p><p>在阅读完这些规则后，我不禁想到了他们在用户体验（UX）设计中的应用。</p><p>&nbsp;</p><p>用户体验（UX）设计师们知道讲好一个故事的重要性 —— 我们致力于让我们的用户对我们作品的一致性、准确性、直观性有一个综合的理解。</p><p>&nbsp;</p><p>认识到于这些规则间的关系，我们就能将Emma的这些规则完美解读为良好用户体验（UX）的基础训诫。将这些当成一系列可以改善设计的指导准则吧。</p><p><br></p><p><br></p><p><img src="http://img.zcool.cn/community/02f4f156f7fff532f875a944ef5d74.jpg" alt="3f7c56f7fff532f875a944ec5de0.jpg"></p><p><br></p><p>&nbsp;</p><p><br></p><p><span style="color: rgb(89, 89, 89);"><strong>［皮克斯动画原则01］角色光环：尝试更多可能性比成功更值得赞赏。</strong></span></p><p><br></p><p><strong>［对应UX原则］</strong>UX设计永远不能一蹴而就。用户看重的是产品与服务都在不断进步，他们愿意为了系统的更新，煎熬地等待一至两周。</p><p><br></p><p><br></p><p><br></p><p><span style="color: rgb(89, 89, 89);"><strong>［皮克斯动画原则02］铭记从观众的视角而不是编剧的视角审视什么是有趣的，因为这其中的差异很大。</strong></span></p><p><br></p><p><strong>［对应UX原则］</strong>视觉上看起来不错的产品可能不是用户们所需要或渴望的。通过数据分析研究用户的需求，并在用户采访中听取他们的抱怨。</p><p><br></p><p>设计师还是应重视直觉，用户并不总能提出最相关或最合适的解决方案，当然即便如此，有时你需要在设计上做出相应改变以让用户感觉到自己的意见已被听取。</p><p><br></p><p><br></p><p style="text-align: center;"><span style="font-size: 24px; color: rgb(191, 191, 191);">你需要在设计上做出相应改变以让用户感觉到自己的意见已被听取。</span></p><p><br></p><p><br></p><p><br></p><p><span style="color: rgb(89, 89, 89);"><strong>［皮克斯动画原则03］为主题服务是重要的，但不到最后你看不到整个故事。如果不是这样，开始重写吧。</strong></span></p><p><br></p><p><strong>［对应UX原则］</strong>保持愿景对产品而言至关重要，但是过分追求完美会让你变得困顿。常言道“早发布，常更新”，我们应该牢记于心。</p><p>首次发布总避免不了有些尴尬的事情发生，但如果不发布，你就是在拖慢产品的进度<em>-</em>你最有可能扼杀了它的成功。如果你的产品是轻量化的和专注的，你能够快速评估到用户的反馈，并把它应用到下一个迭代。</p><p><br></p><p><br></p><p><br></p><p><span style="color: rgb(89, 89, 89);"><strong>［皮克斯动画原则04］很久很久以前，有一个 ______。 每天_______。有一天 ______因为这样， ______。因为那样 ______。直到最后 ______。</strong></span></p><p><br></p><p><strong>［对应UX原则］</strong>一个永恒问题的完美解决方案，可以转变和固化用户叙事。这种类型的叙事思路可以成为项目早期构想阶段的启明星，让你和你的团队不至于走错路。</p><p><br></p><p>对于有着这些___（用户的问题/挫折感）___的___（空白的用户类型）___ ， 这个产品___（加入有价值的道具）___ ，不像___（竞品的名单）___有着___（列出竞品的价值/诋毁者）___ ，我们___（列出我们与众不同的地方）___ 。</p><p><br></p><p><br></p><p><br></p><p><span style="color: rgb(89, 89, 89);"><strong>［皮克斯动画原则05］简化，专注，整合角色，绕过弯路，表面上看似错过了一些重要的东西，实际上你在解放自己。</strong></span></p><p><strong><br></strong></p><p><strong>［对应UX原则］</strong>简化，专注于产品本身，整合功能，舍弃无用的，不必要的功能对产品来说弊大于利。丢弃它们，可能你会感觉自己的产品在降低价值，但是专注于产品核心才能获得用户关注。</p><p><br></p><p><br></p><p><br></p><p><span style="color: rgb(89, 89, 89);"><strong>［皮克斯动画原则06］你的角色擅长什么？喜欢什么？把不喜欢不擅长的丢给他们，找他们麻烦，看他们会怎么办？</strong></span></p><p><br></p><p><strong>［对应UX原则］</strong>你的产品的作用是什么？现在可以假设一些你暂时不会遇到的相关的问题。</p><p><br></p><p>遇到这些问题，你的系统仍然坚挺吗，还是已经奔溃？你是否认为自己需要不断调整以适应当下遇到的问题。如果你需要增加一些功能去解决问题，必须细细斟酌是否必要，否则不要发布。</p><p><br></p><p><br></p><p><br></p><p><span style="color: rgb(89, 89, 89);"><strong>［皮克斯动画原则07］在你想到要怎么做之前，先想好故事结局。讲真，结局是最难的部分，最好在你开干之前想清楚。</strong></span></p><p><strong><br></strong></p><p><strong>［对应UX原则］</strong>什么是用户理想的体验？你试图为他们解决什么问题？你把什么看做用户的最佳体验？在工作前期把这些问题想清楚了，可以让你在工作的过程中有一个更完整的概念，并帮助你迅速做决定。它也是你成功与否的重要衡量之一。</p><p><br></p><p><br></p><p><br></p><p style="text-align: center;"><span style="font-size: 24px; color: rgb(191, 191, 191);">在你增加其它新功能之前，先完成并发布你的产品。</span></p><p><br></p><p><br></p><p><br></p><p><span style="color: rgb(89, 89, 89);"><strong>［皮克斯动画原则08］就算你的故事不完美，你也要把它完成。只有在理想的状态下才可能两全其美，你只能保证下一次做得更好。</strong></span></p><p><br></p><p><strong>［对应UX原则］</strong>在你增加其它新功能之前，先完成并发布你的产品。任何一个完美的产品都是通过不断的更新迭代完成的。当你完成核心功能后，再解决其它问题，就会慢慢地做得越来越好。</p><p>为了明确下一阶段要新增的功能，你完成了第一代产品后就要开始关注用户的各个点击动作和数据反馈。</p><p><br></p><p>&nbsp;</p><p><br></p><p><img src="http://img.zcool.cn/community/026a9a56f8004a6ac7257948707500.jpg" alt="c9f256f8004a6ac7257948dfd48f.jpg"></p><p>这个图表很好地体现了减少初始功能以得到最小可用产品的时间效益。通过这条曲线，你可以很明显地发现随着开发技术的难度加大，产品成长的曲线由快变缓。所以这时候寻找并删减一些没那么必要的功能可以节省你几个星期甚至几个月的时间。</p><p><br></p><p><br></p><p><br></p><p><span style="color: rgb(89, 89, 89);"><strong>［皮克斯动画原则09］当你不知道怎么办的时候，列出所有不可能出现的情况，通常让你摆脱困境的办法就会因此显现。</strong></span></p><p><br></p><p><strong>［对应UX原则］</strong>如果你已陷入困境，不要被你最开始的想法所牵制住，列出所有能实现或者不可能实现的想法，不然你永远不知道大胆的想法会带来奇迹。</p><p><br></p><p><br></p><p><br></p><p><span style="color: rgb(89, 89, 89);"><strong>［皮克斯动画原则10］分解你喜欢的故事，这些故事中你喜欢的那些部分就是你的想法，在你采用这些故事之前需认清这一点。</strong></span></p><p><strong><br></strong></p><p><strong>［对应UX原则］</strong>评价你喜欢的产品和软件。这些产品中为你所爱的元素也是你设计的审美及内驱力，它决定了你跟技术进行交互时的直观感受。如果你和这个产品的互动是和谐，其他人也可能是这样。</p><p><br></p><p><br></p><p><br></p><p><span style="color: rgb(89, 89, 89);"><strong>［皮克斯动画原则11］把它写在纸上然后完善细节。如果它只是一个停留在你脑袋里完美无缺的想法，你永远不会有机会和其他人分享。</strong></span></p><p><br></p><p><strong>［对应UX原则］</strong>把你大脑里的想法变成有形可见的东西，这样你就能很快征求别人的意见，从而获得很多有效而详细的反馈。如果你是在团队里合作，那么多在白板上写下你的想法，在会议室里组织陈述你的想法让大家各抒己见，思想的碰撞可以让想法更完善。</p><p><br></p><p style="text-align: center;"><img src="http://img.zcool.cn/community/02877156f8007f6ac7257948dc8455.jpg" alt="147156f8007f6ac72579485b0c32.jpg"></p><p style="text-align: center;">大家可以看看<a href="http://handsome.is/">Handsome</a>网站上，我们在最初的设计调研阶段进行头脑风暴的办公室。</p><p><br></p><p><br></p><p><br></p><p><span style="color: rgb(89, 89, 89);"><strong>［皮克斯动画原则12］在大脑里先想好最重要的事，然后分别列举第二、第三、第四、第五，用列举法可以很清晰地梳理你的想法，这会让你大吃一惊。</strong></span></p><p><br></p><p><strong>［对应UX原则］</strong>这个方法可以适用于大部分创造性的工作。</p><p><br></p><p><br></p><p><br></p><p><span style="color: rgb(89, 89, 89);"><strong>［皮克斯动画原则13］赋予你的角色以态度。在你的写作过程中，被动或多变对你来说或许更自在，但这对你的观众来说却是毒药。</strong></span><br><br><strong>［对应UX原则］</strong>同理你需要给你产品的一个独特的包装和感觉。一个一直在设计上打安全牌的产品是不会有记忆点的，而受众也会很快地对这款产品感到厌倦。<br></p><p><br></p><p><br><br><span style="color: rgb(89, 89, 89);"><strong>［皮克斯动画原则14］你为什么要讲诉这个故事？它能引起你内心信仰涌动的来源在哪里？这才是讲故事的核心。</strong></span><br><br><strong>［对应UX原则］</strong>你为什么要解决这个问题？你凭什么认为将这个问题解决之后，你的用户群体会感到高兴？解决后它会多大程度上地影响到你的用户群体的生活？你要知道如果这个问题的解决为你的用户带来了积极的影响，那么这些用户将会自发性的在网络上去分享你的这款产品，如此一来便会有成倍的用户将受惠于你给出的这个解决方案。</p><p><br></p><p><br></p><p><br></p><p><span style="color: rgb(89, 89, 89);"><strong>［皮克斯动画原则15］设想如果你是主人公，在此种情况下，你会有何感受？坦诚的想法让不可意义的情形更加可信。</strong></span></p><p><br></p><p><strong>［对应UX原则］</strong>真心实意地从用户角度出发，抛掉那些商业的限制，完全对自己诚实。一旦你开始用换位思考的视角看待你的用户，那些不必要的解决方案和想法将更容易判断和剔除。</p><p><br></p><p>我们的用户研究过程包含了查阅大量的相关文档和对重要用户和客户的数据整理。我们分析处理这些用户数据中的重点，将他们按照相似的想法分组。通过这样，我们可以评估用户优先级的合理性，同时判断在哪些方面我们应该着重替用户考虑。</p><p><br></p><p style="text-align: center;"><img src="http://img.zcool.cn/community/02c11356f800be32f875a9441616d1.jpg" alt="a49c56f800be32f875a944ab623c.jpg"></p><p><br></p><p>我们的用户研究过程包含了查阅大量的相关文档和对重要用户和客户的数据整理。我们分析处理这些用户数据中的重点，将他们按照相似的想法分组。通过这样，我们可以评估用户优先级的合理性，同时判断在哪些方面我们应该着重替用户考虑。</p><p><br></p><p><br></p><p><br></p><p><span style="color: rgb(89, 89, 89);"><strong>［皮克斯动画原则16］这场博弈的赌注是什么？我们有足够的理由支持角色。但如果他无法成功会怎样？算算概率。</strong></span></p><p><strong><br></strong></p><p><strong>［对应UX原则］</strong>试图去打破你固有的设计。发现在哪些地方特定用户会碰壁，觉得他们的问题被忽视。这些问题一开始可能会让你觉得几乎不可能解决，但是请坚持下去。一个问题越是不可能解决，一旦解决后用户投入的兴趣也越大。这同样能给他们一个理由支持你产品的成功，促进产品的口碑，更好地对抗竞争者。</p><p><br></p><p><br></p><p><br></p><p style="text-align: center;"><span style="font-size: 24px; color: rgb(191, 191, 191);">没有哪项设计是无用的，只是它发生作用需要一个过程。</span></p><p><br></p><p><br></p><p><br></p><p><span style="color: rgb(89, 89, 89);"><strong>［皮克斯动画原则17］没有哪项工作是做无用功的。如果不起作用<strong style="color: rgb(89, 89, 89); white-space: normal;">，</strong>顺其自然地往前推进，稍后它变得有用了。</strong></span></p><p><br></p><p><strong>［对应UX原则］</strong>没有哪项设计是无用的，只是它发生作用需要一个过程。</p><p><br></p><p>如果你的脑袋从来没有冒出过糟糕的想法,那你就不可能想出什么好想法。试着把一个想法先晾一边,如果它真的有用，以后你一定会用到它的。</p><p><br></p><p><br></p><p><strong>［皮克斯动画原则18］你必须清晰地认识自己：尽力而为和瞎忙一气的区别。好故事是试验出来的<strong style="color: rgb(89, 89, 89); white-space: normal;">，</strong>而不是提炼出来的。</strong></p><p><strong><br></strong></p><p>你最好的作品将来自你和同伴交换的概念。如果你只是在封闭的空间重复提炼的工作<strong style="color: rgb(89, 89, 89); white-space: normal;">，</strong>那么你肯定会忽略重要的问题。</p><p><br></p><p><br></p><p><br></p><p style="text-align: center;"><span style="font-size: 24px; color: rgb(191, 191, 191);">你最好的作品将来自你和同伴交换的概念。</span></p><p><span style="font-size: 24px;"><br></span></p><p><br></p><p><br></p><p><span style="color: rgb(89, 89, 89);"><strong>［皮克斯动画原则19］让人物陷入困境的巧合非常妙；但让人物摆脱困境的巧合则具有欺骗性的。</strong></span></p><p><br></p><p><strong>［对应UX原则］</strong>发现令用户变得沮丧，注意力不集中，或者不满意的情景。记录和解决这些问题将比你自己慢慢摸索意识到的更进了一步。</p><p><br></p><p>相反，要注意说服自己，用户和你一样拥有可以解决问题的技术来解决他们的问题。如果这不是显而易见的，说明这就是难点所在。</p><p><br></p><p><br></p><p><br></p><p><span style="color: rgb(89, 89, 89);"><strong>［皮克斯动画原则20］&nbsp;练习题：如果去掉电影中你不喜欢的那部分。你将如何把它们重新组合进你喜欢的情节里？</strong></span></p><p><br></p><p><strong>［对应UX原则］</strong>去除产品中你不喜欢的功能，想想你要如何解决这些问题。哪些功能是有效的，哪些不是？也许有些部分功能根本不需要存在。理解产品特点之间的功能关系，并识别出弱项，对于提高产品视角来讲是个很好的锻炼，作为一个局外人的角色评估软件，将有助于您设定一个标准来评估自己的产品。</p><p><br></p><p><br></p><p><br></p><p><span style="color: rgb(89, 89, 89);"><strong>［皮克斯动画原则21］&nbsp;你应该认同并理解你的故事背景和角色，而不能仅仅只写一个“酷”。是什么让你这样去理解的？</strong></span></p><p><br></p><p><strong>［对应UX原则］</strong>你应该认同你的用户以及他们所处的大量特定使用环境。站在用户的角度将会给你一个绝佳的切入点。</p><p>但是，不可能每次都有正确的答案。唯一真正稳固的解决方法是进行早期及频繁的用户测试。没有任何产品、理念或想法是可以超越这个规则的。</p><p><br></p><p><br></p><p><br></p><p><span style="color: rgb(89, 89, 89);"><strong>［皮克斯动画原则22］你故事的精髓在哪里？是否是最经济有效的叙事方式？如果你知道答案，你就能从那里开始营造整个故事。</strong></span></p><p><br></p><p><strong>［对应UX原则］</strong>你的产品的精髓在哪里？最经济有效的版本是什么？</p><p><br></p><p>尽管这已成为一个流行口号，<a href="http://blog.invisionapp.com/minimum-viable-product-mutants/">最小可行性产品</a>(MVP)&nbsp;是用来描述预期结果的最精确方式。缩减产品的功能和范围通常是复杂困难的，同时，那个非最小可行性特点也不是那么容易确定。</p><p>尝试再次审视你“电梯游说”，把产品现在的状态与其比较。你是否能足够好地完成一件事以至于你的产品同时也能够解决第2级或第3级问题？如果不是的话，你可能需要相应缩减直至下次版本的发布。</p><p><br></p><p>注：“电梯游说”（Elevator pitch），即用极具吸引力的方式简明扼要地阐述自己的观点。也被称为电梯法则，例如你在电梯里，只有30秒的时间来向一位关系公司前途的大客户推广产品且必须成功。</p><p><br></p><p><br></p><p><br></p><p>非常感谢，Emma Coats</p><p>我要特别感谢Emma Coats。我们都是故事讲述者，而且我相信她的22条原则可以被很多其他行业吸收借鉴。做为创造者，我们应该从有意义的决策过程中努力展现一些概念性的思考给大家。做为一个产品设计师，我们越是尝试从其他专业中群策群力，我们就越有可能了解用户体验的共性。</p><p><br></p><p><br></p><p><br></p><p>本期翻译：火鱼 lynn_dash Kentoness小胖雀jojo&nbsp;Esc李ada 达尔文darren mok juey maybe 菲洛琪</p><p>校对：zero&nbsp; connie</p><p>设计：zoey</p><p>&nbsp;</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; color: rgb(102, 102, 102); font-family: Verdana, 宋体, Helvetica, sans-serif; line-height: 30px; white-space: normal; background-color: rgb(255, 255, 255);">原文地址：<a href="http://design.tutsplus.com/tutorials/animation-for-beginners-how-to-animate-a-character-running--cms-25730" target="_blank">http://design.tutsplus.com/tutorials/animation-for-beginners-how-to-animate-a-character-running--cms-25730</a></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; color: rgb(102, 102, 102); font-family: Verdana, 宋体, Helvetica, sans-serif; line-height: 30px; white-space: normal; background-color: rgb(255, 255, 255);">————————————————————————————————————————————————<br></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; color: rgb(102, 102, 102); font-family: Verdana, 宋体, Helvetica, sans-serif; line-height: 30px; white-space: normal; background-color: rgb(255, 255, 255);"><br></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px; color: rgb(102, 102, 102); font-family: Verdana, 宋体, Helvetica, sans-serif; line-height: 30px; white-space: normal; background-color: rgb(255, 255, 255);">我们是DATS翻译小组，我们爱设计爱英语，通过翻译设计的文章共同学习进步，虽然我们还有许多不足，但是只要把每个人的微小的力量聚集起来，总有一天会发出耀眼的光芒~ 欢迎到主页关注我们。</p><p><br></p>
+        </div>
+      </div>
+
+
+  - contentType: STORY
+    author: UI 中国
+    isOriginal: false
+    title: Plus X带你玩转YG娱乐公司的品牌设计
+    url: http://www.ui.cn/detail/113459.html
+    excerpt: |
+      在UCAN大会上，高颜值长腿欧巴plus X创意总监ShinMyungSup分享《从用户切入点出发的品牌及产品设计策略》。
+    state: LIVE
+    likedUsers: ['nick', 'jay', 'nickfans1', 'jayfans1']
+    channels: ['UI']
+    image: http://img.zcool.cn/community/0204fe56f7fe456ac7257948d86bc0.jpg 
+    text: |
+      <div class="works-cont editor-style ui-theme" id="p-content"><p></p><p>在UCAN大会上，高颜值长腿欧巴plus X创意总监ShinMyungSup分享《从用户切入点出发的品牌及产品设计策略》。ShinMyungSup以YG娱乐公司为例分享了一贯性品牌体验的设计流程。首先也是最重要的是，寻找并分享品牌价值，再把品牌价值细节化。第二是品牌体验的设计元素的定义，包括logo、图像、颜色、字体、图片风格、画面感觉、声音等。最后通过多样化设计媒体的品牌体验。</p><p>YG这一个品牌设计案例。也是该公司最为完整的设计案例，曾多次获奖，并受到业内人士的追捧。大家应该都能感受到不同的收获。以下内容转载自plus x的behance主页。</p><p>先来一张长腿欧巴在UCAN的玉照。</p><p></p> <a href="http://img.ui.cn/data/file/8/8/2/543288.jpg?imageMogr2/auto-orient/quality/100" target="_blank"><img src="http://img.ui.cn/data/file/8/8/2/543288.jpg?imageMogr2/auto-orient/quality/100" title="Plus X带你玩转YG娱乐公司的品牌设计" alt="Plus X带你玩转YG娱乐公司的品牌设计"></a><a href="http://img.ui.cn/data/file/9/8/2/543289.jpg?imageMogr2/auto-orient/quality/100" target="_blank"><img src="http://img.ui.cn/data/file/9/8/2/543289.jpg?imageMogr2/auto-orient/quality/100" title="Plus X带你玩转YG娱乐公司的品牌设计" alt="Plus X带你玩转YG娱乐公司的品牌设计"></a>						</div>
+
+
+

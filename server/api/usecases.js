@@ -1,10 +1,8 @@
-var AV = require('leanengine')
-var _ = require('lodash')
-var push = require('../common/push')
+const AV = require('leanengine')
+const _ = require('lodash')
 
-// `AV.Object.extend` 方法一定要放在全局变量，否则会造成堆栈溢出。
-// 详见： https://leancloud.cn/docs/js_guide.html#对象
-var UseCase = AV.Object.extend('UseCase')
+const push = require('../common/push')
+const UseCase = require('../models').UseCase
 
 exports.find = function(req, res, next) {
 
@@ -21,7 +19,7 @@ exports.find = function(req, res, next) {
   query.find()
     .then(function(results) {
       // 主动序列化 json 列
-      // 见：https://github.com/leancloud/docs/blob/master/md/cloud_code_faq.md#为什么查询-include-没有生效
+      // 见：https://leancloud.cn/docs/leanengine_faq.html#为什么查询_include_没有生效_
       results.forEach(function (result) {
         populateObject(result, 'categories')
       })

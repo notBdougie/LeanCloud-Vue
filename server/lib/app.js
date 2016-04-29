@@ -4,7 +4,7 @@ var bodyParser = require('body-parser')
 var path = require('path')
 var AV = require('leanengine')
 
-var cloud = require('./cloud')
+var cloud = require('../common/cloud')
 var config = require('./config')
 
 var app = express()

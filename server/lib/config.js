@@ -1,12 +1,7 @@
 const path = require('path')
 const _ = require('lodash')
 
-const env = process.env.NODE_ENV
-
-/* eslint-disable */
-if (!env)
-  throw "NODE_ENV is required."
-/* eslint-enable */
+const env = process.env.NODE_ENV || require('./constants').DEVELOPMENT 
 
 const config = _.merge({
   env: env,

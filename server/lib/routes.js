@@ -1,15 +1,16 @@
-var express = require('express')
-var auth = require('../auth')
-var usecases = require('../api/usecases')
-var user = require('../api/user')
-var config = require('./config')
+const express = require('express')
+const auth = require('../auth')
+const usecases = require('../api/usecases')
+const newsList = require('../api/newsList')
+const user = require('../api/user')
+const config = require('./config')
 
 module.exports = function (app) {
 
   // 静态目录
   if (app.get('env') === require('./constants').DEVELOPMENT) {
     const request = require('request')
-    
+
     app.route('/')
       .get(function(req, res) {
         // res.sendFile(path.resolve(config.root, '../app/index.html'))
@@ -19,7 +20,7 @@ module.exports = function (app) {
           res.end(body)
         })
       })
-    
+
     // 开发热部署
     require('./compile')(app)
   } else {
@@ -30,6 +31,8 @@ module.exports = function (app) {
   app.post('/api/login', user.login)
   app.post('/api/logout', user.logout)
 
+  app.get('/api/newsView', newsList.newsView)
+
   app.use(auth.member)
 
   app.get('/api/me', user.me)
@@ -38,4 +41,6 @@ module.exports = function (app) {
   app.get('/api/usecases/search', usecases.search)
   app.get('/api/usecases/:_id', usecases.get)
   app.put('/api/usecases/:_id', usecases.put)
+
+
 }
