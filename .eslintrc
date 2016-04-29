@@ -86,8 +86,6 @@
     "no-octal-escape": 2,
     // disallow use of (old style) octal literals
     "no-octal": 2,
-    // disallow reassignment of function parameters
-    "no-param-reassign": [2, { "props": true }],
     // disallow use of process.env
     "no-process-env": 0,
     // disallow usage of __proto__ property
@@ -105,7 +103,8 @@
     // restrict what can be thrown as an exception
     "no-throw-literal": 2,
     // disallow usage of expressions in statement position
-    "no-unused-expressions": 2,
+    "no-unused-expressions": 1,
+    "no-unused-vars": 1,
     // disallow unnecessary .call() and .apply()
     "no-useless-call": 0,
     // disallow unnecessary concatenation of literals or template literals
@@ -119,7 +118,7 @@
     // require use of the second argument for parseInt()
     "radix": 2,
     // requires to declare all vars on top of their containing scope
-    "vars-on-top": 2,
+    "vars-on-top": 0,
     // require immediate function invocation to be wrapped in parentheses
     "wrap-iife": [2, "outside"],
     // require or disallow Yoda conditions

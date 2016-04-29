@@ -7,6 +7,9 @@
     "name": "Zhuyiteng",
     "email": "zhuyiteng@jd.com"
   },
+  "repository": {
+    "url": "http://source.jd.com/app/aurora.git"
+  },
   "license": "MIT",
   "engines": {
     "node": ">=4.0.0"
@@ -51,6 +54,7 @@
     "webpack-md5-hash": "0.0.5"
   },
   "dependencies": {
+    "avoscloud-sdk": "^0.6.10",
     "body-parser": "^1.15.0",
     "config": "^1.20.1",
     "cookie-parser": "^1.4.1",
