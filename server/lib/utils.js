@@ -1,5 +1,13 @@
 const _ = require('lodash')
 
+
+/**
+ * 解决 LeanCloud 查询 include 没有生效的问题
+ * 
+ * @export
+ * @param object LeanCloud 对象
+ * @param key include 的字段
+ */
 export function populateObject (object, key) {
     if (_.isArray(key)) {
         let keys = key
@@ -18,8 +26,15 @@ export function populateObjects (objects, key) {
 }
 
 function _populateObject (object, key) {
-    let arr = _.map(object.get(key), function(val) {
-        return val.toJSON ? val.toJSON() : val
-    })
-    object.set(key, arr)
+    let pointer = object.get(key)
+    let data
+    if (_.isArray(pointer)) {
+        let pointers = pointer
+        data = _.map(pointers, function(pointer) {
+            return pointer.toJSON ? pointer.toJSON() : pointer
+        })    
+    } else {
+        data = pointer.toJSON ? pointer.toJSON() : pointer
+    }
+    object.set(key, data)
 }
