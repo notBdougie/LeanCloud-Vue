@@ -1,11 +1,11 @@
 var path = require('path')
 var webpack = require('webpack')
 
-var PUBLIC_ASSETS_PATH = path.resolve(__dirname, 'app/assets')
+var PUBLIC_ASSETS_PATH = path.resolve(__dirname, 'client/assets')
 
 module.exports = {
   entry: [
-    "./app/main.js"
+    "./client/main.js"
   ],
   output: {
     path: path.resolve(__dirname, "dist/assets"),

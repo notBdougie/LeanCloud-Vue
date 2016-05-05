@@ -10,9 +10,9 @@ config.entry = ['webpack-hot-middleware/client?reload=true', ...config.entry]
 config.plugins = [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-        template: 'app/index.html',
+        template: 'client/index.html',
         filename: 'index.html',
-        favicon: 'app/favicon.ico'
+        favicon: 'client/favicon.ico'
     }),
     ...config.plugins]
 

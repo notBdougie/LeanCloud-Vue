@@ -15,9 +15,9 @@ config.plugins = [
     }),
   new WebpackMd5Hash(),
   new HtmlWebpackPlugin({
-    template: 'app/index.html',
+    template: 'client/index.html',
     filename: '../index.html',
-	favicon: 'app/favicon.ico',
+	  favicon: 'client/favicon.ico',
     inject: 'body'
   }),
   new webpack.optimize.DedupePlugin(),

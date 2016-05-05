@@ -2,7 +2,7 @@
   "name": "project-aurora",
   "version": "0.0.1",
   "description": "Server side code of Aurora.",
-  "main": "app/main.js",
+  "main": "server/index.js",
   "author": {
     "name": "Zhuyiteng",
     "email": "zhuyiteng@jd.com"
