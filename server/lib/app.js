@@ -9,8 +9,6 @@ var config = require('./config')
 
 var app = express()
 
-app.use(require('morgan')('short'))
-
 // 设置环境变量
 app.set('env', config.env)
 
@@ -33,12 +31,28 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // 默认 cookie 5 天后过期
 app.use(AV.Cloud.CookieSession({ secret: config.secret, maxAge: 3600000 * 24 * 5, fetchUser: true }))
 
+app.use((req, res, next) => {
+    const sessionToken = req.headers['x-lc-session']
+    Logger.debug(`req.AV.user: ${!!req.AV.user}, sessionToken: ${!!sessionToken}`)
+    
+    if (!sessionToken || req.AV.user)
+      return next()
+      
+    AV.User.become(sessionToken, {
+      success: function(user) {
+        req.AV.user = user
+        next()
+      },
+      error: next
+    })
+})
+
 // 加载路由
 require('./routes')(app)
 
 // error handlers
-app.use(function(err, req, res) { // jshint ignore:line
-
+app.use(function(err, req, res, next) { // eslint-disable-line
+  
   var statusCode, message
 
   var type = typeof err

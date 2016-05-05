@@ -16,7 +16,6 @@ exports.login = function(req, res, next) {
 
 exports.logout = function(req, res) {
   AV.User.logOut();
-  console.log('res.end');
   res.end()
 }
 
