@@ -1,7 +1,7 @@
 const express = require('express')
 const auth = require('../auth')
-const usecases = require('../api/usecases')
 const newsList = require('../api/newsList')
+const newsView = require('../api/newsView')
 const user = require('../api/user')
 const config = require('./config')
 
@@ -31,16 +31,17 @@ module.exports = function (app) {
   app.post('/api/login', user.login)
   app.post('/api/logout', user.logout)
 
-  app.get('/api/newsView', newsList.newsView)
+  app.get('/api/newsView', newsView.newsView)
 
   app.use(auth.member)
 
   app.get('/api/me', user.me)
-  app.get('/api/usecases', usecases.find)
-  app.get('/api/usecases/count', usecases.count)
-  app.get('/api/usecases/search', usecases.search)
-  app.get('/api/usecases/:_id', usecases.get)
-  app.put('/api/usecases/:_id', usecases.put)
+  
+  app.get('/api/newsList', newsList.find)
+  app.get('/api/newsList/count', newsList.count)
+  app.get('/api/newsList/search', newsList.search)
+  app.get('/api/newsList/:_id', newsList.get)
+  app.put('/api/newsList/:_id', newsList.put)
 
 
 }
