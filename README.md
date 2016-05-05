@@ -1,4 +1,6 @@
 ## 开发前须知
+1. 全局变量：Logger
+1. 安装全局：node-dev
 1. 运行 `npm install`
 
 ## 开发模式启动

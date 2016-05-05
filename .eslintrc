@@ -10,6 +10,9 @@
     "node": true,
     "browser": true
   },
+  "globals": {
+    "Logger": true
+  },
   "extends": "eslint:recommended",
   "rules": {
     // Enforces getter/setter pairs in objects
@@ -101,7 +104,7 @@
     // disallow use of comma operator
     "no-sequences": 2,
     // restrict what can be thrown as an exception
-    "no-throw-literal": 2,
+    "no-throw-literal": 1,
     // disallow usage of expressions in statement position
     "no-unused-expressions": 1,
     "no-unused-vars": 1,
