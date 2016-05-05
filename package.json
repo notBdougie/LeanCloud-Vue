@@ -15,11 +15,12 @@
     "node": ">=4.0.0"
   },
   "scripts": {
-    "dev": "PORT=6100 NODE_ENV=development node-dev server",
+    "dev": "NODE_ENV=development node-dev server | ./node_modules/.bin/bunyan -o short",
     "build": "./node_modules/.bin/babel-node node_modules/webpack/bin/webpack.js --config webpack.production.config.js --production",
     "stage": "npm run build & PORT=6101 NODE_ENV=stage node-dev server",
     "deploy": "npm run build & ./deploy.sh",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_CONFIG_DIR=../config NODE_ENV=development ava --require babel-register",
+    "watch:test": "npm test -- --watch"
   },
   "keywords": [
     "riot",
@@ -28,6 +29,7 @@
   "devDependencies": {
     "autoprefixer": "^6.3.3",
     "autoprefixer-loader": "^3.2.0",
+    "ava": "^0.14.0",
     "babel": "^6.3.26",
     "babel-cli": "^6.7.7",
     "babel-core": "^6.4.0",
@@ -65,7 +67,7 @@
     "leanengine": "^0.4.0",
     "lodash": "^4.11.1",
     "moment": "^2.13.0",
-    "morgan": "^1.7.0",
-    "request": "^2.72.0"
+    "request": "^2.72.0",
+    "request-promise": "^3.0.0"
   }
 }
