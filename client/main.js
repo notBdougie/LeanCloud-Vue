@@ -1,6 +1,8 @@
-require('./components/random.tag')
-require('./css/main.scss')
+import Vue from 'vue';
+import App from './App';
 
-riot.mount('random', {
-  title: 'Random number generator!'
-})
+/* eslint-disable no-new */
+new Vue({
+  el: 'body',
+  components: { App }
+});

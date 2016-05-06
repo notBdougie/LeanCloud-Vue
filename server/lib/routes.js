@@ -9,18 +9,6 @@ module.exports = function (app) {
 
   // 静态目录
   if (app.get('env') === require('./constants').DEVELOPMENT) {
-    const request = require('request')
-
-    app.route('/')
-      .get(function(req, res) {
-        // res.sendFile(path.resolve(config.root, '../app/index.html'))
-        request.get(`http://localhost:${config.port}/${config.assetsEntry}/index.html`, (err, response, body) => {
-          if (err || response.statusCode !== 200)
-            return res.end(`cannot find index.html, code: ${response.statusCode}, reason: ${err}`)
-          res.end(body)
-        })
-      })
-
     // 开发热部署
     require('./compile')(app)
   } else {
@@ -33,7 +21,7 @@ module.exports = function (app) {
 
   app.get('/api/newsView', newsView.newsView)
 
-  app.use(auth.member)
+  // app.use(auth.member)
 
   app.get('/api/me', user.me)
   

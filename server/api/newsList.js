@@ -6,10 +6,10 @@ const UseCase = require('../models').UseCase
 
 exports.find = function(req, res, next) {
 
-  var pageLimit = req.query.pageLimit || 10
-  var pageIndex = req.query.pageIndex || 0
+  const pageLimit = req.query.pageLimit || 10
+  const pageIndex = req.query.pageIndex || 0
 
-  var query = new AV.Query(UseCase)
+  const query = new AV.Query(UseCase)
   query.descending('createdAt')
   query.skip(pageIndex * pageLimit)
   query.limit(pageLimit)
@@ -29,7 +29,7 @@ exports.find = function(req, res, next) {
 }
 
 exports.count = function(req, res, next) {
-  var query = new AV.Query(UseCase)
+  const query = new AV.Query(UseCase)
 
   query.count()
     .then(function(number) {
@@ -41,7 +41,7 @@ exports.count = function(req, res, next) {
 }
 
 exports.get = function(req, res, next) {
-  var _id = req.params._id
+  const _id = req.params._id
 
   getUseCase(_id, true)
     .then(function(result) {
@@ -57,13 +57,13 @@ exports.get = function(req, res, next) {
  *   sid
  */
 exports.search = function(req, res, next) {
-  var query = new AV.SearchQuery('UseCase')
-  var queryString = req.query.queryString || '*'
-  var sid = req.query.sid || ''
-  var limit = req.query.limit || 10
+  const query = new AV.SearchQuery('UseCase')
+  const queryString = req.query.queryString || '*'
+  const sid = req.query.sid || ''
+  const limit = req.query.limit || 10
 
   // Search Order
-  var builder = new AV.SearchSortBuilder()
+  const builder = new AV.SearchSortBuilder()
   builder.descending('createdAt')
   query.sortBy(builder)
 
@@ -83,15 +83,15 @@ exports.search = function(req, res, next) {
 }
 
 exports.put = function (req, res, next) {
-  var _id = req.params._id
-  var title = req.body.title
-  var desc = req.body.desc
+  const _id = req.params._id
+  const title = req.body.title
+  const desc = req.body.desc
   /**
    * 已提交：submitted
    * 已通过：passed
    * 已拒绝：rejected
    */
-  var status = req.body.status || ''
+  const status = req.body.status || ''
 
   // 查询
   getUseCase(_id)
@@ -108,7 +108,7 @@ exports.put = function (req, res, next) {
     .then(function(result) {
       
       if (status === 'passed') {
-        var user = result.get('atUser')
+        const user = result.get('atUser')
         push.msgByUser({
           user: user,
           message: '恭喜，您提交的H5案例「' + result.get("title") + '」已被设为精选！'
@@ -128,8 +128,8 @@ exports.put = function (req, res, next) {
 
 // 新增 Todo 项目
 // router.post('/', function(req, res, next) {
-//   var content = req.body.content
-//   var todo = new Todo()
+//   const content = req.body.content
+//   const todo = new Todo()
 //   todo.set('content', content)
 //   todo.save(null, {
 //     success: function(todo) {
@@ -142,7 +142,7 @@ exports.put = function (req, res, next) {
 // })
 
 function getUseCase (_id, isPopulateAll) {  // jshint ignore:line
-  var query = new AV.Query(UseCase)
+  const query = new AV.Query(UseCase)
   if (isPopulateAll) {
     query.include('screenshots')
     query.include('categories')
@@ -169,7 +169,7 @@ function populateUseCase (result) {  // jshint ignore:line
 }
 
 function populateObject (result, key) {  // jshint ignore:line
-  var arr = _.map(result.get(key), function(val) {
+  const arr = _.map(result.get(key), function(val) {
     return val.toJSON ? val.toJSON() : val
   })
   result.set(key, arr)

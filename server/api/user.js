@@ -1,8 +1,8 @@
-var AV = require('leanengine')
+const AV = require('leanengine')
 
 exports.login = function(req, res, next) {
-  var username = req.body.username;
-  var password = req.body.password;
+  const username = req.body.username;
+  const password = req.body.password;
 
   AV.User.logIn(username, password, {
     success: function(user) {

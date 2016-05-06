@@ -1,13 +1,13 @@
-var express = require('express')
-var cookieParser = require('cookie-parser')
-var bodyParser = require('body-parser')
-var path = require('path')
-var AV = require('leanengine')
+const express = require('express')
+const cookieParser = require('cookie-parser')
+const bodyParser = require('body-parser')
+const path = require('path')
+const AV = require('leanengine')
 
-var cloud = require('../common/cloud')
-var config = require('./config')
+const cloud = require('../common/cloud')
+const config = require('./config')
 
-var app = express()
+const app = express()
 
 // 设置环境变量
 app.set('env', config.env)
@@ -33,10 +33,11 @@ app.use(AV.Cloud.CookieSession({ secret: config.secret, maxAge: 3600000 * 24 * 5
 
 app.use((req, res, next) => {
     const sessionToken = req.headers['x-lc-session']
-    Logger.debug(`req.AV.user: ${!!req.AV.user}, sessionToken: ${!!sessionToken}`)
     
     if (!sessionToken || req.AV.user)
       return next()
+      
+    Logger.debug(`req.AV.user: ${!!req.AV.user}, sessionToken: ${!!sessionToken}`)
       
     AV.User.become(sessionToken, {
       success: function(user) {
@@ -53,9 +54,9 @@ require('./routes')(app)
 // error handlers
 app.use(function(err, req, res, next) { // eslint-disable-line
   
-  var statusCode, message
+  let statusCode, message
 
-  var type = typeof err
+  const type = typeof err
   switch (type) {
     case 'number':
       statusCode = err
