@@ -48,7 +48,7 @@ module.exports = {
   },
   plugins: [],
   babel: {
-    presets: ['es2015-node6']
+    presets: ['es2015']
   },
   vue: {
     loaders: utils.cssLoaders()
