@@ -1,6 +1,8 @@
 <template lang="jade">
-  div.hello
-    h1 {{msg}} haha
+  div.navbar
+    p navbar
+    a(v-link="{ path: '/' }") Home
+    a(v-link="{ path: '/newsList' }") Go to newsList
 </template>
 
 <script>
@@ -17,9 +19,13 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1 {
-  color: #42b983;
-}
+<style lang="scss" scoped>
+    .navbar {
+        width: 100%;
+        background-color: red;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 </style>
