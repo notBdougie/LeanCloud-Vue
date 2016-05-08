@@ -31,6 +31,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // 默认 cookie 5 天后过期
 app.use(AV.Cloud.CookieSession({ secret: config.secret, maxAge: 3600000 * 24 * 5, fetchUser: true }))
 
+// 接收请求头部传递的 Session Token
 app.use((req, res, next) => {
     const sessionToken = req.headers['x-lc-session']
     
@@ -51,7 +52,7 @@ app.use((req, res, next) => {
 // 加载路由
 require('./routes')(app)
 
-// error handlers
+// 错误处理
 app.use(function(err, req, res, next) { // eslint-disable-line
   
   let statusCode, message
