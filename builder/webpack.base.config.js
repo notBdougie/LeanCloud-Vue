@@ -40,7 +40,7 @@ module.exports = {
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       },
-      { test: /\.js$/, exclude: /node_modules/, include: PROJECT_ROOT, loader: 'babel', query: {
+      { test: /\.js$/, include: [path.resolve('./client')], loader: 'babel', query: {
           cacheDirectory: true
       }},
       { test: /\.vue$/, loader: 'vue', exclude: /node_modules/ }

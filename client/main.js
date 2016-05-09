@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 import RouterConfig from './router';
 
 Vue.use(VueRouter)
+Vue.use(require('vue-resource'))
 
 const router = new VueRouter({
   history: true,
