@@ -1,16 +1,9 @@
 import Vue from 'vue';
 import App from './App';
-import VueRouter from 'vue-router';
-import RouterConfig from './router';
+import router from './lib/router';
+import './lib/resources';
 
-Vue.use(VueRouter)
-Vue.use(require('vue-resource'))
-
-const router = new VueRouter({
-  history: true,
-  saveScrollPosition: true
-})
-
-RouterConfig(router)
+// Settings
+Vue.config.debug = process.env.NODE_ENV !== 'production'
 
 router.start(App, 'app')
