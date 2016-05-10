@@ -7,7 +7,7 @@
     
     <!-- Aside -->
     <div class="right menu">
-      <a class="item" v-if="isLogin">{{user.name}}</a>
+      <a class="item" v-if="isLogin">{{user.nickname}}</a>
       <a class="item" v-if="isLogin" @click="logout(event)">退出</a>
       <a class="item" v-if="!isLogin" v-link="{path: '/login', activeClass: 'active'}">登录</a>
       <a class="item" v-if="!isLogin" v-link="{path: '/register', activeClass: 'active'}">注册</a>
@@ -37,7 +37,8 @@ export default {
     
     return {
       menus: this.menuData,
-      isLogin: user !== null
+      isLogin: user !== null,
+      user: user
     }
   },
   events: {
