@@ -2,6 +2,7 @@
 {
     "files.exclude": {
         // "dist": true,
-        "typings": true
+        "typings": true,
+        "client/semantic/dist": true
     }
 }

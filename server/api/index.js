@@ -1,4 +1,6 @@
 const express = require('express')
+const validate = require('express-validation')
+const Joi = require('joi')
 
 const auth = require('../auth')
 const newsList = require('./newsList')
@@ -8,7 +10,12 @@ const user = require('./user')
 const router = express.Router()
 
 // 免权限接口
-router.post('/login', user.login)
+router.post('/login', validate({
+    body: {
+        username: Joi.string().required(),
+        password: Joi.string().regex(/[a-zA-Z0-9]{3,30}/).required()
+    }
+}), user.login)
 router.post('/logout', user.logout)
 
 router.get('/newsView', newsView.newsView)

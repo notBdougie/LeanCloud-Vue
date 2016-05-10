@@ -75,27 +75,20 @@ app.use(function(err, req, res, next) { // eslint-disable-line
       statusCode = err.status || 500
       message = err.message || err
   }
-  if(statusCode === 500) {
-    // 具体的错误代码详见：https://leancloud.cn/docs/error_code.html
+  
+  // 具体的错误代码详见：https://leancloud.cn/docs/error_code.html
+  if(statusCode === 500)
     console.error(err.stack || ("Error: ", err))
-  }
+  err.stack = undefined
+  
   res.status(statusCode)
-
   if (req.xhr) {
-    return res.end(message)
+    return typeof err === 'string' ? res.end(message) : res.json(err)
   } else {
-    if (app.get('env') === 'development') {
-      res.render('error', {
-        message: message,
-        error: err
-      })
-    } else {
-      res.render('error', {
-        message: err.message,
-        error: {}
-      })
-    }
-
+    return res.render('error', {
+      message: message,
+      error: {}
+    })
   }
 })
 

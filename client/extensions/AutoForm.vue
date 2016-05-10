@@ -111,18 +111,44 @@
   function serverFormErrors (form, response) {
     var remainingErrors = {}
     if (response.status >= 400) {
+      
       if (typeof response.data === 'string') {
         response.data = [response.data]
       }
-      for (var key in response.data) {
-        if (response.data.hasOwnProperty(key)) {
+      var errors = {unknown: []}
+      
+      if (response.data) {
+        // work with AndrewKeig/express-validation
+        if (response.data.errors) {
+          for (var i = 0; i < response.data.errors.length; i++) {
+            var errorObj = response.data.errors[i]
+            if (errorObj.field) {
+              errors[errorObj.field] = errorObj.messages
+            } else {
+              errors.unknown.push(errorObj)
+            }
+          }  
+        } else {
+          // work with leancloud
+          if (response.data.code) {
+            errors.unknown.push(`Response: ${response.data.message}`)
+            errors.unknown.push(`Error Code: ${response.data.code}`)
+          }
+          // other unknown responses
+          else {
+            errors.unknown.push(response.data.message || response.data)
+          }
+        }
+      }
+      for (var key in errors) {
+        if (errors.hasOwnProperty(key)) {
           var fieldInput = form.querySelector('[name="' + key + '"]')
           var fieldDom = fieldInput ? fieldInput.parentNode : null
           if (!fieldDom) {
-            remainingErrors[key] = response.data[key]
+            remainingErrors[key] = errors[key]
             continue
           }
-          appendFormError(fieldDom, response.data[key])
+          appendFormError(fieldDom, errors[key])
         }
       }  
       appendBundleErrors(form, remainingErrors)
