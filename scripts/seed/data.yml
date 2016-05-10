@@ -19,6 +19,18 @@ user:
   - nickname: 杰伦粉丝2
     bio: 努力工作，天天向上
     username: jayfans2
+  - nickname: 腾奕
+    bio: 与时俱进。
+    username: chuyik
+    avatar: https://avatars3.githubusercontent.com/u/6262943?v=3&s=460
+
+roles:
+  - name: Editor
+    roles:
+      - Admin
+  - name: Admin
+    users:
+      - chuyik
 
 follow:
   - username: nick

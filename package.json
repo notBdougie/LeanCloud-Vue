@@ -20,7 +20,8 @@
     "stage": "npm run build & PORT=6101 NODE_ENV=stage node-dev server",
     "deploy": "npm run build & ./deploy.sh",
     "test": "NODE_CONFIG_DIR=../config NODE_ENV=development ava --require babel-register",
-    "watch:test": "npm test -- --watch"
+    "watch:test": "npm test -- --watch",
+    "seed": "./node_modules/.bin/babel-node scripts/seed"
   },
   "keywords": [
     "vue",
