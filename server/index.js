@@ -1,4 +1,4 @@
-require('babel-core/register')
+// require('babel-core/register')
 
 // use logger globally
 global.Logger = require('./lib/logger').Logger

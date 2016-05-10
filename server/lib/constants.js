@@ -1,3 +1,3 @@
-export const DEVELOPMENT = 'development'
-export const STAGE = 'stage'
-export const PRODUCTION = 'production'
+exports.DEVELOPMENT = 'development'
+exports.STAGE = 'stage'
+exports.PRODUCTION = 'production'

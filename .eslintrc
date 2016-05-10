@@ -22,7 +22,7 @@
     // specify the maximum cyclomatic complexity allowed in a program
     "complexity": [0, 11],
     // specify curly brace conventions for all control statements
-    "curly": [1],
+    "curly": [0],
     // require default case in switch statements
     "default-case": 2,
     // enforces consistent newlines before or after dots

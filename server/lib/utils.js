@@ -8,7 +8,7 @@ const _ = require('lodash')
  * @param object LeanCloud 对象
  * @param key include 的字段
  */
-export function populateObject (object, key) {
+function populateObject (object, key) {
     if (_.isArray(key)) {
         let keys = key
         _.each(keys, (key) => {
@@ -19,7 +19,7 @@ export function populateObject (object, key) {
     }
 }
 
-export function populateObjects (objects, key) {
+function populateObjects (objects, key) {
     objects.forEach(function (object) {
         populateObject(object, key)
     })
@@ -38,3 +38,6 @@ function _populateObject (object, key) {
     }
     object.set(key, data)
 }
+
+exports.populateObject = populateObject
+exports.populateObjects = populateObjects

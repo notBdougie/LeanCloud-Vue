@@ -4,7 +4,7 @@ const _ = require('lodash')
 const News = require('../models').News
 const Util = require('../lib/utils')
 
-export function newsView (req, res, next) {
+exports.newsView = function newsView (req, res, next) {
     let query = new AV.Query(News)
     query.descending('createdAt')
     query.include('channels', 'likedUsers')

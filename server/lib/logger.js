@@ -7,4 +7,4 @@ const Logger = bunyan.createLogger({
     serializers: bunyan.stdSerializers
 })
 
-export {Logger}
+module.exports = Logger
