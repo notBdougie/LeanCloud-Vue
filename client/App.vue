@@ -1,20 +1,28 @@
 <template lang="jade">
   #app
     navbar
-    router-view
+    router-view(style="padding-top: 30px;")
 </template>
 
 <script>
   import Navbar from './components/NavBar';
+  import CurrentUserProvider from './extensions/UserProvider'
 
   export default {
     components: {
       Navbar
+    },
+    ready: function () {
+      CurrentUserProvider.installApp(this)
+      CurrentUserProvider.loadFromServer()
     }
   };
 </script>
 
-<style>
+<style lang="scss" rel="stylesheet/scss" scoped>
+  @import "./semantic/dist/semantic.css";
+  @import "../node_modules/nprogress/nprogress.css";
+  
   html {
     height: 100%;
   }
@@ -27,20 +35,9 @@
   }
 
   #app {
-    color: #2c3e50;
-    margin-top: -100px;
-    max-width: 600px;
-    font-family: Source Sans Pro, Helvetica, sans-serif;
-    text-align: center;
-  }
-
-  #app a {
-    color: #42b983;
-    text-decoration: none;
-  }
-
-  .logo {
-    width: 100px;
-    height: 100px
+    margin: 20px auto 0;
+    max-width: 1000px;
+    padding: 0 20px;
+    font-family: -apple-system, "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
   }
 </style>

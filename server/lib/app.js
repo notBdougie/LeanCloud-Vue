@@ -3,6 +3,7 @@ const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const path = require('path')
 const AV = require('leanengine')
+const multer = require('multer')
 
 const cloud = require('../common/cloud')
 const config = require('./config')
@@ -48,6 +49,9 @@ app.use((req, res, next) => {
       error: next
     })
 })
+
+// 处理 multipart/form-data
+app.use(multer().fields([]))
 
 // 加载路由
 require('./routes')(app)

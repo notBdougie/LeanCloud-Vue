@@ -15,6 +15,12 @@ router.map({
     '/newsList': {
         component: require('../components/NewsList')
     },
+    '/login': {
+        component: require('../components/Login')
+    },
+    '/register': {
+        component: require('../components/Register')
+    },
     '*': {
         component: require('../components/NotFound')
     }
