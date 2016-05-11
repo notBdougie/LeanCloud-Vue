@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import UserProvider from '../extensions/UserProvider'
+import UserProvider from '../lib/UserProvider'
 export default {
   props: {
     menuData: {

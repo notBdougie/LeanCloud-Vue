@@ -27,8 +27,8 @@
 </template>
 
 <script>
-  import '../extensions/AutoForm'
-  import UserProvider from '../extensions/UserProvider'
+  import '../lib/AutoForm'
+  import UserProvider from '../lib/UserProvider'
   export default {
     data () {
       return {}

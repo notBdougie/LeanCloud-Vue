@@ -6,7 +6,7 @@
 
 <script>
   import Navbar from './components/NavBar';
-  import CurrentUserProvider from './extensions/UserProvider'
+  import CurrentUserProvider from './lib/UserProvider'
 
   export default {
     components: {

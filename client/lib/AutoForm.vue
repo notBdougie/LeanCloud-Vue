@@ -1,6 +1,6 @@
 <script>
   import Vue from 'vue'
-  import resource from '../lib/resources'
+  import resource from './resources'
   
   Vue.directive('auto-form', {
     params: ['action', 'v-response-type'],
