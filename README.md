@@ -1,4 +1,4 @@
-LeanCloud Vue Boilterplate
+LeanCloud Vue Boilerplate
 ===
 This boilerplate contains some awesome new front-end technologies, like hot reloading and ES6.
 
@@ -61,8 +61,8 @@ For more, check out the full feature list below:
 Make sure Node.js 6.x is installed and enabled in current shell. 
 
 ```bash
-git clone https://github.com/chuyik/LeanCloud-Vue-Boilterplate.git
-cd LeanCloud-Vue-Boilterplate
+git clone https://github.com/chuyik/LeanCloud-Vue-Boilerplate.git
+cd LeanCloud-Vue-Boilerplate
 npm install
 ```
 
