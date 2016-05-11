@@ -10,7 +10,7 @@
   "repository": {
     "url": "http://source.jd.com/app/aurora.git"
   },
-  "license": "MIT",
+  "license": "BSD",
   "engines": {
     "node": ">=6.1.0"
   },
@@ -50,6 +50,7 @@
     "html-webpack-plugin": "^2.16.1",
     "http-proxy-middleware": "^0.15.0",
     "jade-loader": "^0.8.0",
+    "node-dev": "^3.1.1",
     "node-sass": "^3.7.0",
     "sass-loader": "^3.2.0",
     "semantic-ui": "^2.1.8",

@@ -1,37 +1,110 @@
-## 开发前须知
-1. 全局变量：Logger
-1. 安装全局：node-dev
-1. 运行 `npm install`
+LeanCloud Vue Boilterplate
+===
+This boilerplate contains some awesome new front-end technologies, like hot reloading and ES6.
 
-## 开发模式启动
+This project is designed to be opinionated but robust enough to set up a website with common features like ajax communication and authentication, as well as data storage with [LeanCloud].
+
+For more, check out the full feature list below:
+
+## Features
+
+Server: 
+1. [Node 6.x][node-green] and Express 4.x
+1. [Webpack] (with hot reloading)
+1. [LeanCloud] integration
+1. [Babel] (transform ES6 for browser)
+1. [Ava] (Asynchronous test runner)
+1. [Bunyan] for logging (`logger` set as a global variable)
+1. Database seeding example (see `scripts/seed` folder)
+
+Client:
+1. [Vue.js] 1.x (with plugins [vue-resource] and [vue-router])
+1. [Semantic UI][semantic-ui]
+1. [SASS] support (with autoprefixer)
+
+Editor:
+1. [Visual Studio Code] configurations
+1. [Typings] definitions for intellisense
+1. [ESLint]
+
+## Application Structure
+```
+.
+├── builder           # Build/Start scripts
+├── client            # Application source code
+│   ├── assets        # Static assets
+│   ├── components    # Vue.js components
+│   ├── extensions    # Vue.js directives or service providers
+│   ├── semantic      # Semantic-UI related code
+│   └── main.js       # Application bootstrap
+├── config            # Project configuration settings
+├── scripts           # Common scripts
+│   └── seed          # Seeding scripts
+├── server            # Server source code
+│   ├── api           # Server API
+│   ├── auth          # Authentication middleware
+│   ├── common        # LeanEngine cloud functions
+│   ├── lib           # Server configuration
+│   ├── models        # Data models
+│   ├── views         # Server rendered views
+│   └── index.js      # Server application entry point
+├── test              # Unit tests
+└── typings           # Typings definitions
+```
+
+
+## Installation
+
+```bash
+git clone https://github.com/chuyik/LeanCloud-Vue-Boilterplate.git
+npm install
+```
+
+## Using Vue DevTools
+
+Install [Vue DevTools chrome extension][devtools] and it just works.
+
+
+## Running Dev Server
+
 ```bash
 npm run dev
 ```
 
-## 打包
-```bash
-npm run build   # 使用 webpack 进行打包
-```
+## Pre-production Testing
 
-## 模拟生产环境启动
 ```bash
 npm run stage
 ```
 
-## 部署
+## Deployment
 ```bash
+# Do not run this unless you know what `deploy.sh` does.
+# Details are being revealed soon.
+# Source: https://github.com/X1011/git-directory-deploy
 npm run deploy
 ```
 
-<!--
-## 正式发布（确保`测试模式`下运行通过）
+## Run Seeding Scripts
 ```bash
-npm run publish
+npm run seed
 ```
--->
 
-## 相关网址
-- 线上生产地址：https://weekly.avosapps.com/
-- 线上测试地址：http://dev.weekly.avosapps.com/
-- 本地开发地址：http://localhost:6100/
-- 本地测试地址：http://localhost:6101/
+[LeanCloud]: https://leancloud.cn/
+[devtools]: https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd
+[ava]: https://github.com/sindresorhus/ava
+[vue-resource]: https://github.com/vuejs/vue-resource
+[vue-router]: https://github.com/vuejs/vue-router/
+[node-green]: http://node.green/
+[webpack]: https://webpack.github.io/
+[babel]: https://babeljs.io/
+[vue.js]: https://vuejs.org/
+[semantic-ui]: http://semantic-ui.com/
+[sass]: http://sass-lang.com/
+[visual studio code]: https://code.visualstudio.com/
+[typings]: https://github.com/typings/typings
+[eslint]: http://eslint.org/
+[bunyan]: https://github.com/trentm/node-bunyan
+
+## License
+[BSD license](http://opensource.org/licenses/bsd-license.php)
