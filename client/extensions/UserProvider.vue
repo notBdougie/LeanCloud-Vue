@@ -20,11 +20,12 @@
         re.data = re.data ? re.data : null
         UserProvider.setCurrentUser(re.data)
       }, function (err) {
+        vm.$router.go('/login')
         console.error(err)
       })
     },
     logout: function () {
-      Vue.http.get('logout').then(function (re) {
+      Vue.http.post('logout').then(function (re) {
         UserProvider.setCurrentUser(null)
       }, function (err) {
         console.error(err)

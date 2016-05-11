@@ -4,6 +4,7 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
 import NProgress from 'nprogress'
+import router from './router'
 
 NProgress.configure({ showSpinner: false })
 
@@ -39,6 +40,9 @@ Vue.http.interceptors.push({
 
   response: function (response) {
     NProgress.done()
+    if (response.status === 401) {
+      router.go('/login')
+    }
     return response
   }
 })

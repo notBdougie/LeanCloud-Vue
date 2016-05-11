@@ -8,11 +8,11 @@
                 <div class="column">
                     <div class="field">
                         <label>用户名</label>
-                        <input type="text" name="username" placeholder="" value="asd">
+                        <input type="text" name="username" placeholder="">
                     </div>
                     <div class="field">
                         <label>密码</label>
-                        <input type="password" name="password" placeholder="" value="qwe">
+                        <input type="password" name="password" placeholder="">
                     </div>
                     <button class="ui primary button" type="submit">登录</button>
                     <!--<button class="ui link button" type="button" @click="forgotPassword(event)">忘记密码</button>-->
@@ -36,6 +36,7 @@
     events: {
       onFormComplete: function (form, response) {
         UserProvider.setCurrentUser(response.data)
+        this.$router.go('/')
       }
     },
     methods: {

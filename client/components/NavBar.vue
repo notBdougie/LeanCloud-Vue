@@ -10,7 +10,7 @@
       <a class="item" v-if="isLogin">{{user.nickname}}</a>
       <a class="item" v-if="isLogin" @click="logout(event)">退出</a>
       <a class="item" v-if="!isLogin" v-link="{path: '/login', activeClass: 'active'}">登录</a>
-      <a class="item" v-if="!isLogin" v-link="{path: '/register', activeClass: 'active'}">注册</a>
+      <!--<a class="item" v-if="!isLogin" v-link="{path: '/register', activeClass: 'active'}">注册</a>-->
     </div>
   </div>
 </template>
