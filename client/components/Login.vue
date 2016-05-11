@@ -8,11 +8,11 @@
                 <div class="column">
                     <div class="field">
                         <label>用户名</label>
-                        <input type="text" name="username" placeholder="">
+                        <input type="text" name="username" placeholder="" value="nick">
                     </div>
                     <div class="field">
                         <label>密码</label>
-                        <input type="password" name="password" placeholder="">
+                        <input type="password" name="password" placeholder="" value="nick">
                     </div>
                     <button class="ui primary button" type="submit">登录</button>
                     <!--<button class="ui link button" type="button" @click="forgotPassword(event)">忘记密码</button>-->

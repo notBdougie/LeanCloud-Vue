@@ -1,0 +1,4 @@
+# Secret key for cookies signing
+secret: "secret"
+
+logLevel: debug

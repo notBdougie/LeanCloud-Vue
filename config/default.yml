@@ -1,0 +1,13 @@
+port: 6100
+
+# LeanCloud App keys
+# These keys are real but just for preview, 
+# you should replace them with yours.
+leancloud:
+    APP_ID: NFyRnmmpCqRlmf0RLFaKyyRn-gzGzoHsz
+    APP_KEY: VQLv3u1fvHl0Hu98QP35SsJ1
+    MASTER_KEY: 0udqjqm0JaEQynGv1rjbpUAe
+    
+# Logging levels
+# References: https://github.com/trentm/node-bunyan#levels
+logLevel: info
