@@ -11,10 +11,10 @@ For more, check out the full feature list below:
 **Server:**
 
 1. [Node 6.x][node-green] and Express 4.x
-1. [Webpack] (with hot reloading)
+1. [Webpack] \(with hot reloading)
 1. [LeanCloud] integration
-1. [Babel] (transform ES6 for browser)
-1. [Ava] (asynchronous test runner)
+1. [Babel] \(transform ES6 for browser)
+1. [Ava] \(asynchronous test runner)
 1. [Bunyan] for logging (`logger` set as a global variable)
 1. Database seeding example (see `scripts/seed` folder)
 
