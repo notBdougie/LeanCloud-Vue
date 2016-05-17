@@ -120,7 +120,7 @@
     "no-with": 2,
     "no-var": 2,
     // require use of the second argument for parseInt()
-    "radix": 2,
+    "radix": ["error", "as-needed"],
     // requires to declare all vars on top of their containing scope
     "vars-on-top": 0,
     // require immediate function invocation to be wrapped in parentheses
