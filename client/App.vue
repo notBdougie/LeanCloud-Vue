@@ -1,7 +1,8 @@
 <template lang="jade">
   #app
     navbar
-    router-view(style="padding-top: 30px;")
+    div(style="margin-top: 64px;")
+      router-view
 </template>
 
 <script>
