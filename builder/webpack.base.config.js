@@ -8,7 +8,8 @@ const PUBLIC_ASSETS_PATH = path.resolve(PROJECT_ROOT, 'client/assets')
 
 module.exports = {
   entry: {
-    app: "./client/main.js"
+    app: "./client/main.js",
+    vendor: ['jquery', 'vue', 'vue-router', 'moment']
   },
   output: {
     path: config.build.assetsRoot,

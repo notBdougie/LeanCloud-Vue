@@ -31,6 +31,7 @@ module.exports = merge(baseWebpackConfig, {
         "NODE_ENV": JSON.stringify("production")
       }
     }),
+    new webpack.optimize.CommonsChunkPlugin('vendor.js'),
     new webpack.optimize.OccurenceOrderPlugin(),
     new WebpackMd5Hash(),
     // extract css into its own file
