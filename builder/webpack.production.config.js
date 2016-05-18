@@ -2,13 +2,13 @@ const webpack = require('webpack')
 const WebpackMd5Hash = require('webpack-md5-hash')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const _ = require('lodash')
+const merge = require('webpack-merge')
 
 const config = require('./config')
 const utils = require('./utils')
 const baseWebpackConfig = require('./webpack.base.config')
 
-module.exports = _.merge(baseWebpackConfig, {
+module.exports = merge(baseWebpackConfig, {
   modules: {
     loaders: utils.styleLoaders({ sourceMap: config.build.productionSourceMap, extract: true })
   },

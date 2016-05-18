@@ -1,5 +1,5 @@
 const webpack = require('webpack')
-const _ = require('lodash')
+const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const baseWebpackConfig = require('./webpack.base.config')
 
@@ -8,7 +8,7 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
   baseWebpackConfig.entry[name] = ['./builder/dev-client'].concat(baseWebpackConfig.entry[name])
 })
 
-module.exports = _.merge(baseWebpackConfig, {
+module.exports = merge(baseWebpackConfig, {
     output: {
         filename: '[name].js',
         pathinfo: true
