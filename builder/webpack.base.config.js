@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 const path = require('path')
 const utils = require('./utils')
 const config = require('./config')
@@ -19,7 +20,8 @@ module.exports = {
     alias: {
       'client': path.resolve(PROJECT_ROOT, '../client'),
       'assets': PUBLIC_ASSETS_PATH,
-      'components': path.resolve(PROJECT_ROOT, '../client/components')
+      'components': path.resolve(PROJECT_ROOT, '../client/components'),
+      'jquery': "jquery/src/jquery"
     }
   },
   resolveLoader: {
@@ -43,10 +45,17 @@ module.exports = {
       { test: /\.js$/, include: [path.resolve('./client')], loader: 'babel', query: {
           cacheDirectory: true
       }},
-      { test: /\.vue$/, loader: 'vue', exclude: /node_modules/ }
+      { test: /\.vue$/, loader: 'vue', exclude: /node_modules/ },
+      { test: require.resolve('jquery'), loader: 'expose?jQuery'},
+      { test: /jquery[\\\/]src[\\\/]selector\.js$/, loader: 'amd-define-factory-patcher-loader' }
     ]
   },
-  plugins: [],
+  plugins: [
+    new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery"
+    })
+  ],
   babel: {
     presets: ['es2015']
   },

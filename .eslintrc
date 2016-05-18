@@ -11,7 +11,8 @@
     "browser": true
   },
   "globals": {
-    "Logger": true
+    "Logger": true,
+    "$": true
   },
   "extends": "eslint:recommended",
   "rules": {
