@@ -1,33 +1,37 @@
 <script>
   import Vue from 'vue'
-  import resource from './resources'
-  
+
   Vue.directive('auto-form', {
-    params: ['action', 'v-response-type'],
+    params: ['action', 'v-response-type', 'model'],
     bind: function () {
       var params = this.params
       var form = this.el
       var vm = this.vm
-      var action = params.action
-      
+
       // Prepare error boxes
       prepareErrorBoxes(form)
       // Prepare $watch
       form.unwatchFuncs = prepareWatch(vm, form)
       form.classList.add('auto-form')
-      
+
       vm.$onAutoFormSubmit = function (event) {
         removeFormErrors(form)
         form.classList.add('loading')
         // fires before we do anything
         vm.$dispatch('beforeFormSubmit', form)
+
+        // Use model data if passed 
+        var data = params.model || new window.FormData(event.target)
         
-        var data = new window.FormData(event.target)
-        
+        // Send update in RESTful
+        var _id = data._id || data.get('_id')
+        var method = vm.method || (_id ? 'put' : 'post')
+        var action = _id ? params.action + '/' + _id : params.action   
+
         // Send request
         vm.$http({
             url: action,
-            method: vm.method || 'post',
+            method: method,
             data: data,
             upload: {
                 onprogress: (evt) => {
@@ -46,14 +50,13 @@
             afterSubmit(form, vm)
             serverFormErrors(form, response)
             vm.$dispatch('onFormError', form, response)
+            vm.$broadcast('onFormErrorGlobal', form, response)
         })
-        
+
         event.preventDefault()
         event.stopPropagation()
       }
       form.addEventListener('submit', vm.$onAutoFormSubmit)
-    },
-    update: function (newValue, oldValue) {
     },
     unbind: function () {
       var form = this.el
@@ -111,12 +114,12 @@
   function serverFormErrors (form, response) {
     var remainingErrors = {}
     if (response.status >= 400) {
-      
+
       if (typeof response.data === 'string') {
         response.data = [response.data]
       }
       var errors = {unknown: []}
-      
+
       if (response.data) {
         // work with AndrewKeig/express-validation
         if (response.data.errors) {
@@ -127,7 +130,7 @@
             } else {
               errors.unknown.push(errorObj)
             }
-          }  
+          }
         } else {
           // work with leancloud
           if (response.data.code) {
@@ -150,7 +153,7 @@
           }
           appendFormError(fieldDom, errors[key])
         }
-      }  
+      }
       appendBundleErrors(form, remainingErrors)
     }
   }
@@ -197,6 +200,8 @@
   }
   function removeFormError (form, field_name) {
     var field = form.querySelector('.field-error-' + field_name)
+    if (!field) return
+    
     emptyDom(field)
     field.classList.remove('full-display')
     field.parentNode.classList.remove('error')
