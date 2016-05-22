@@ -8,7 +8,8 @@
 <script>
   import Navbar from './components/NavBar';
   import CurrentUserProvider from './lib/UserProvider'
-
+  import SemanticUI from './semantic/dist/semantic.js'
+  
   export default {
     components: {
       Navbar
