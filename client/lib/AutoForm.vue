@@ -24,7 +24,7 @@
         var data = params.model || new window.FormData(event.target)
         
         // Send update in RESTful
-        var _id = data._id || data.get('_id')
+        var _id = data._id || (data.get && data.get('_id'))
         var method = vm.method || (_id ? 'put' : 'post')
         var action = _id ? params.action + '/' + _id : params.action   
 
