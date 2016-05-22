@@ -21,18 +21,6 @@ Vue.http.interceptors.push({
       if (xsrfToken) {
         request.headers['X-XSRF-TOKEN'] = xsrfToken
       }
-
-      let method = request.method.toLowerCase()
-      if (method !== 'post' && method !== 'get') {
-        console.log('here', request.data)
-        if (request.data) {
-          request.data._method = method
-        }
-        else {
-          request.data = {_method: method}
-        }
-        request.method = 'POST'
-      }
     }
     NProgress.start()
     return request
