@@ -41,8 +41,7 @@ export default {
         // Todo: read all properties of this reference with keys
         // and merge them with default options
         options.onApprove = vm.onApprove || options.onApprove
-        options.onApprove = vm.onDeny || options.onDeny
-        
+        options.onDeny = vm.onDeny || options.onDeny
         $(vm.$el).modal(options)
     },
 
