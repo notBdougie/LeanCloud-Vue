@@ -31,10 +31,10 @@ function _populateObject (object, key) {
     if (_.isArray(pointer)) {
         let pointers = pointer
         data = _.map(pointers, function(pointer) {
-            return pointer.toJSON ? pointer.toJSON() : pointer
+            return pointer && pointer.toJSON ? pointer.toJSON() : pointer
         })    
     } else {
-        data = pointer.toJSON ? pointer.toJSON() : pointer
+        data = pointer && pointer.toJSON ? pointer.toJSON() : pointer
     }
     object.set(key, data)
 }
