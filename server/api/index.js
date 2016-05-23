@@ -4,7 +4,6 @@ const Joi = require('joi')
 
 const auth = require('../auth')
 const newsList = require('./newsList')
-const newsView = require('./newsView')
 const user = require('./user')
 
 const router = express.Router()
@@ -18,8 +17,6 @@ router.post('/login', validate({
 }), user.login)
 router.post('/logout', user.logout)
 
-router.get('/newsView', newsView.newsView)
-
 // 校验权限
 router.use(auth.member)
 
@@ -29,6 +26,7 @@ router.get('/me', user.me)
 router.get('/newsList', newsList.find)
 router.get('/newsList/count', newsList.count)
 router.get('/newsList/search', newsList.search)
+router.post('/newsList', newsList.post)
 router.get('/newsList/:_id', newsList.get)
 router.put('/newsList/:_id', newsList.put)
 

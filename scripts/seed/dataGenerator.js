@@ -5,6 +5,8 @@ const _ = require('lodash')
 
 const config = require('../../server/lib/config')
 
+import {News, Channel} from '../../server/models'
+
 // initialize leanengine
 AV.initialize(config.leancloud.APP_ID, config.leancloud.APP_KEY, config.leancloud.MASTER_KEY)
 AV.Cloud.useMasterKey()
@@ -134,7 +136,6 @@ export function followUsers () {
 export function addChannels () {
   let channels = data.channel
   return AV.Promise.all(channels.map(function (_channel) { 
-    let Channel = AV.Object.extend('AURChannel')
     let channel = new Channel()
     return channel.save(_channel)
   }))
@@ -142,9 +143,8 @@ export function addChannels () {
 
 export function addNews () {
   let newsList = data.news
-  let News = AV.Object.extend('AURNews')
   let users, channels
-  return AV.Promise.all([new AV.Query(AV.User).find(), new AV.Query('AURChannel').find()])
+  return AV.Promise.all([new AV.Query(AV.User).find(), new AV.Query(Channel).find()])
     .then((values) => {
       users = values[0]
       channels = values[1]

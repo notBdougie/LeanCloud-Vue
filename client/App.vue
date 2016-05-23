@@ -1,7 +1,7 @@
 <template lang="jade">
   #app
     navbar
-    div(style="margin-top: 64px;")
+    div
       router-view
 </template>
 
