@@ -1,7 +1,7 @@
 // require('babel-core/register')
 
 // use logger globally
-global.Logger = require('./lib/logger').Logger
+global.Logger = require('./lib/logger')
 
 /* eslint-disable */
 if (!process.env.NODE_ENV)
