@@ -60,7 +60,7 @@ require('./routes')(app)
 app.use(function(err, req, res, next) { // eslint-disable-line
   
   let statusCode, message
-
+  
   const type = typeof err
   switch (type) {
     case 'number':
@@ -87,7 +87,7 @@ app.use(function(err, req, res, next) { // eslint-disable-line
   } else {
     return res.render('error', {
       message: message,
-      error: {}
+      error: err
     })
   }
 })
