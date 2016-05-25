@@ -17,7 +17,7 @@ export let userCache = {
 }
 
 export function localRequest (username) {
-    let userData = userCache[username]
+    let userData = userCache[username] || {}
     
     return request.defaults({
         baseUrl: 'http://localhost:' + config.port,
