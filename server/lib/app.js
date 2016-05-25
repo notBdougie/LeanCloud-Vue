@@ -77,6 +77,9 @@ app.use(function(err, req, res, next) { // eslint-disable-line
       error.message = err.message || err.statusTest || "Unknown Error."
   }
   
+  // 打印错误
+  Logger.warn(error.message)
+  
   // 具体的错误代码详见：https://leancloud.cn/docs/error_code.html
   if(error.status === 500)
     console.error(error.stack || ("Error: ", error))
