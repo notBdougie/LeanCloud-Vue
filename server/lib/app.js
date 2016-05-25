@@ -59,36 +59,34 @@ require('./routes')(app)
 // 错误处理
 app.use(function(err, req, res, next) { // eslint-disable-line
   
-  let statusCode, message
+  let error = {}
   
   const type = typeof err
   switch (type) {
     case 'number':
-      statusCode = err
-      message = "Internal Server Error."
+      error.status = err
+      error.message = "Internal Server Error."
       break
     case 'string':
-      statusCode = 400
-      message = err
+      error.status = 400
+      error.message = err
       break
     default:
-      statusCode = err.status || 500
-      message = err.message || err
+      error = err
+      error.status = err.status || 500
+      error.message = err.message || err.statusTest || "Unknown Error."
   }
   
   // 具体的错误代码详见：https://leancloud.cn/docs/error_code.html
-  if(statusCode === 500)
-    console.error(err.stack || ("Error: ", err))
-  err.stack = undefined
+  if(error.status === 500)
+    console.error(error.stack || ("Error: ", error))
+  error.stack = undefined
   
-  res.status(statusCode)
+  res.status(error.status)
   if (req.xhr) {
-    return typeof err === 'string' ? res.end(message) : res.json(err)
+    return res.json(error)
   } else {
-    return res.render('error', {
-      message: message,
-      error: err
-    })
+    return res.render('error', {error})
   }
 })
 

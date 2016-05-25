@@ -5,7 +5,7 @@
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
   </head>
   <body>
-    <h1><%= message %></h1>
+    <h1><%= error.message %></h1>
     <h2><%= error.status %></h2>
     <h2><%- error.errors && JSON.stringify(error.errors) %></h2>
     <pre><%= error.stack %></pre>
