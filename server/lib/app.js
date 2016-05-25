@@ -83,7 +83,7 @@ app.use(function(err, req, res, next) { // eslint-disable-line
   error.stack = undefined
   
   res.status(error.status)
-  if (req.xhr) {
+  if (req.xhr || req.headers.accept.indexOf('json') > -1) {
     return res.json(error)
   } else {
     return res.render('error', {error})
