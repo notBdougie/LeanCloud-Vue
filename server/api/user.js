@@ -20,7 +20,10 @@ exports.logout = function(req, res) {
 }
 
 exports.me = function(req, res) {
-  res.json(req.AV.user)
+  let sessionToken = req.AV.user._sessionToken
+  let user = req.AV.user.toJSON()
+  user._sessionToken = sessionToken
+  res.json(user)
 }
 
 module.exports = exports
