@@ -4,7 +4,13 @@
         <div class="header">
             <slot name="header">{{title}}</slot>
         </div>
-        <slot name="body"></slot>
+        <slot name="body">
+            <template v-if="iframeUrl">
+                <iframe :src="iframeUrl" style="width: 100%; border: none; min-height: 500px;"></iframe>
+            </template>
+            <div class="content" v-text="text" v-if="text"></div>
+            <div class="content" v-html="html" v-if="html"></div>
+        </slot>
         <div class="actions">
             <slot name="actions">
                 <div class="ui negative button">Cancel</div>
@@ -21,6 +27,21 @@ export default {
     props: {
         title: {
             default: 'unknown title'
+        },
+        text: {
+            type: String
+        },
+        html: {
+            type: String
+        },
+        iframeUrl: {
+            type: String
+        },
+        transition: {
+            type: String
+        },
+        duration: {
+            type: Number
         },
         onApprove: Function
     },
@@ -40,6 +61,8 @@ export default {
         
         // Todo: read all properties of this reference with keys
         // and merge them with default options
+        options.transition = vm.transition || options.transition
+        options.duration = vm.duration || options.duration
         options.onApprove = vm.onApprove || options.onApprove
         options.onDeny = vm.onDeny || options.onDeny
         $(vm.$el).modal(options)
