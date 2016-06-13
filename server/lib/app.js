@@ -46,7 +46,10 @@ app.use((req, res, next) => {
         req.AV.user = user
         next()
       },
-      error: next
+      error: function (err) {
+        Logger.debug(`Cannot become AV.User with token: ${sessionToken}`)
+        next(err)
+      }
     })
 })
 
