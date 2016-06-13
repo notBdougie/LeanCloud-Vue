@@ -12,7 +12,7 @@ module.exports = function (app) {
   app.use(DataSanitizer)
   
   // 后台接口
-  app.use('/api', api)
+  app.use('/api', require('./paging'), api)
 
   // 其他请求返回给前端处理
   app.use(require('connect-history-api-fallback')({

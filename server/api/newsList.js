@@ -8,15 +8,14 @@ const Util = require('../lib/utils')
 const IncludedKeys = ['channels', 'likedUsers']
 
 exports.find = (req, res, next) => {
-
-  const pageLimit = req.query.pageLimit || 10
-  const pageIndex = req.query.pageIndex || 0
-
+  
   const query = new AV.Query(News)
   query.descending('createdAt')
-  query.skip(pageIndex * pageLimit)
-  query.limit(pageLimit)
   query.include(IncludedKeys)
+  
+  // 分页处理见 paging.js 
+  query.skip(req.pagingSkip)
+  query.limit(req.pagingLimit)
 
   query.find()
     .then(results => {
