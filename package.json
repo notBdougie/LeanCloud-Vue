@@ -1,14 +1,14 @@
 {
-  "name": "project-aurora",
+  "name": "LeanCloud-Vue-Boilerplate",
   "version": "0.0.1",
-  "description": "Server side code of Aurora.",
+  "description": "LeanCloud Vue Boilerplate.",
   "main": "server/index.js",
   "author": {
-    "name": "Zhuyiteng",
-    "email": "zhuyiteng@jd.com"
+    "name": "aotu.io",
+    "email": "aotu@jd.com"
   },
   "repository": {
-    "url": "http://source.jd.com/app/aurora.git"
+    "url": "git@github.com:o2team/LeanCloud-Vue-Boilerplate.git"
   },
   "license": "BSD",
   "engines": {
