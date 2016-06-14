@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
   div.notfound
     h1 Page is not found.
 </template>

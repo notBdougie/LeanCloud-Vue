@@ -1,5 +1,7 @@
 const webpack = require('webpack')
 const path = require('path')
+const precss = require('precss')
+const autoprefixer = require('autoprefixer')
 const utils = require('./utils')
 const config = require('./config')
 
@@ -30,8 +32,8 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.scss$/, loader: 'style!css!autoprefixer?{browsers:["> 2%"]}!sass' },
-      { test: /\.css$/, loader: "style!css?outputStyle=expanded" },
+      { test: /\.scss$/, loader: 'style!css!postcss!sass' },
+      { test: /\.css$/, loader: "style!css?outputStyle=expanded!postcss" },
       { test: /\.html$/, loader: "vue-html?root="+ PUBLIC_ASSETS_PATH},
       { test: /\.(png|jpe?g|gif|svg)(\?.*)?$/, loader: 'url', query: {
           limit: 10000,
@@ -50,6 +52,9 @@ module.exports = {
       { test: require.resolve('jquery'), loader: 'expose?jQuery'},
       { test: /jquery[\\\/]src[\\\/]selector\.js$/, loader: 'amd-define-factory-patcher-loader' }
     ]
+  },
+  postcss: function () {
+    return [precss, autoprefixer];
   },
   plugins: [
     new webpack.ProvidePlugin({
