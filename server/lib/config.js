@@ -5,9 +5,10 @@ const env = process.env.NODE_ENV || require('./constants').DEVELOPMENT
 
 const config = _.merge({
   env: env,
-  root: path.resolve(__dirname, '../'),
+  root: path.resolve(__dirname, '../')
+}, require('config'), {
   port: process.env.LC_APP_PORT || process.env.PORT
-}, require('config'))
+})
 
 config.publicPath = path.join(config.root, '../dist')
 
