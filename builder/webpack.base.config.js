@@ -19,16 +19,16 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.js', '.vue'],
-    fallback: [path.join(PROJECT_ROOT, '../node_modules')],
+    fallback: [path.join(PROJECT_ROOT, 'node_modules')],
     alias: {
-      'client': path.resolve(PROJECT_ROOT, '../client'),
+      'client': path.resolve(PROJECT_ROOT, 'client'),
       'assets': PUBLIC_ASSETS_PATH,
-      'components': path.resolve(PROJECT_ROOT, '../client/components'),
+      'components': path.resolve(PROJECT_ROOT, 'client/components'),
       'jquery': "jquery/src/jquery"
     }
   },
   resolveLoader: {
-    fallback: [path.join(PROJECT_ROOT, '../node_modules')]
+    fallback: [path.join(PROJECT_ROOT, 'node_modules')]
   },
   module: {
     loaders: [
