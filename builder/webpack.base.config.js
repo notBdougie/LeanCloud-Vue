@@ -60,6 +60,11 @@ module.exports = {
     new webpack.ProvidePlugin({
         $: "jquery",
         jQuery: "jquery"
+    }),
+    new webpack.DefinePlugin({
+        "process.env.serverConfig": {
+          portalPrefix: JSON.stringify(config.serverConfig.portalPrefix)
+        }
     })
   ],
   babel: {

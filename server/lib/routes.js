@@ -14,10 +14,32 @@ module.exports = function (app) {
   // 后台接口
   app.use('/api', require('./paging'), api)
 
+  // 如果有 URL 前缀，则添加一些重写规则
+  let rewriteRules = []
+  if (config.portalPrefix !== '/') {
+    // Redirect all links to the client side,
+    // excluding urls with a dot (.) character (mainly resources)
+    rewriteRules.push({
+      from: /^\/((?!\.).)+$/,
+      to: '/index.html'
+    })
+
+    if (IsDevMode) {
+      // Redirect all webpack-generated resources
+      rewriteRules.push({
+        from: /^\/(.)*\..+$/,
+        to: function(context) {
+          return config.portalPrefix + context.parsedUrl.pathname
+        }
+      })
+    }
+  }
+
   // 其他请求返回给前端处理
   app.use(require('connect-history-api-fallback')({
-      verbose: IsDevMode,
-      index: '/'
+    verbose: IsDevMode,
+    index: '/',
+    rewrites: rewriteRules
   }))
 
   // 开发热部署

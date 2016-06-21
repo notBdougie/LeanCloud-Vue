@@ -1,10 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+let root = process.env.serverConfig.portalPrefix
+
 Vue.use(VueRouter)
 const router = new VueRouter({
   history: true,
-  saveScrollPosition: true
+  saveScrollPosition: true,
+  root: root
 })
 
 // Router Map

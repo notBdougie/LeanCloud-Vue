@@ -11,3 +11,8 @@ leancloud:
 # Logging levels
 # References: https://github.com/trentm/node-bunyan#levels
 logLevel: info
+
+# URLs Prefix
+# This is usually set behind a reverse proxy like Nginx
+# A leading slash is required, eg: /someprefix
+portalPrefix: /
