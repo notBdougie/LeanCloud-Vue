@@ -22,6 +22,8 @@ app.use(cloud)
 
 // 启用 HTTPS（必须要放在 app.use 之后）
 app.enable('trust proxy')
+// 如果自部署而不是托管在 LeanCloud 云引擎的话，
+// 建议自己实现重定向 HTTPS 的方法
 app.use(AV.Cloud.HttpsRedirect())
 
 app.use(cookieParser())
