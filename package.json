@@ -17,8 +17,8 @@
   "scripts": {
     "dev": "NODE_ENV=development node-dev server | ./node_modules/.bin/bunyan -o short",
     "build": "NODE_ENV=production webpack --config builder/webpack.production.config.js -p",
-    "stage": "PORT=6101 NODE_ENV=stage node-dev server",
-    "start": "NODE_ENV=production node server",
+    "stage": "PORT=6101 NODE_ENV=stage node-dev server | ./node_modules/.bin/bunyan",
+    "start": "NODE_ENV=production node server | ./node_modules/.bin/bunyan",
     "deploy": "npm run build & ./deploy.sh",
     "seed": "node scripts/seed",
     "test": "NODE_CONFIG_DIR=../config NODE_ENV=development ava --require babel-register",
