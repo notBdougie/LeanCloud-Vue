@@ -17,11 +17,11 @@ const data = yaml.safeLoad(fs.readFileSync(__dirname + '/data.yml', 'utf8'))
 /**
 roles:
   - name: Editor
+    roles:
+      - Admin
   - name: Admin
     users:
       - chuyik
-    roles:
-      - Editor
  */
 export function setRoles () {
   let roles = data.roles
