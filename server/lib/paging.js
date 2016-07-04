@@ -11,8 +11,7 @@ const DEFAULT_PAGE_NUM = 1
  */
 function preparePaging (req, res, next) {
     if (req.method !== 'GET') return next()
-    
-    const limit = _.max([parseInt(req.query.per_page), MAX_PER_PAGE])
+    const limit = _.min([parseInt(req.query.per_page) || MAX_PER_PAGE, MAX_PER_PAGE])
     const page = parseInt(req.query.page) || DEFAULT_PAGE_NUM
     req.pagingLimit = limit
     req.pagingPage = page
