@@ -1,5 +1,3 @@
-import Vue from 'vue'
-
 let currentUser = null
 let vm = null
 
@@ -16,20 +14,24 @@ const UserProvider = {
     return currentUser
   },
   loadFromServer: function () {
-    Vue.http.get('me').then(function (re) {
-      re.data = re.data ? re.data : null
-      UserProvider.setCurrentUser(re.data)
-    }, function (err) {
-      vm.$router.go('/login')
-      console.error(err)
-    })
+    return vm.$http.get('me')
+      .then(function (re) {
+        re.data = re.data ? re.data : null
+        UserProvider.setCurrentUser(re.data)
+      })
+      .catch(function (err) {
+        console.error('Failed to login: ', err)
+      })
   },
   logout: function () {
-    Vue.http.post('logout').then(function (re) {
-      UserProvider.setCurrentUser(null)
-    }, function (err) {
-      console.error(err)
-    })
+    return vm.$http.post('logout')
+      .then(function () {
+        UserProvider.setCurrentUser(null)
+        vm.$router.redirect('/')
+      })
+      .catch(function (err) {
+        console.error('Failed to logout: ', err)
+      })
   }
 }
 
