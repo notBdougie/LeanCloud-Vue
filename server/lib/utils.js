@@ -39,5 +39,39 @@ function _populateObject (object, key) {
     object.set(key, data)
 }
 
-exports.populateObject = populateObject
-exports.populateObjects = populateObjects
+/**
+ * Select fields by keys from parsed/raw result
+ * 
+ * @export
+ * @param result {Object} Raw data or parsed LeanCloud object
+ * @param key {String}
+ * @param fields {[String]}
+ */
+function selectFields (result, key, fields) {
+    fields = fields.concat(['__type', 'className'])
+    let value = _getValue (result, key)
+    if (_.isArray(value)) {
+        _setValue(result, key, value.map(o => { return _.pick(o, fields) }))
+    } else {
+        _setValue(result, key, _.pick(value, fields))
+    }
+    return result
+}
+
+function _getValue (result, key) {
+    return result.get ? result.get(key) : result[key]
+}
+
+function _setValue (result, key, value) {
+    if (result.set) {
+        result.set(key, value)
+    } else {
+        result[key] = value 
+    }
+}
+
+module.exports = {
+    populateObject,
+    populateObjects,
+    selectFields    
+}
