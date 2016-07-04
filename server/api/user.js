@@ -1,17 +1,21 @@
 const AV = require('leanengine')
+const {getUserRoles} = require('../common/role')
 
 exports.login = function(req, res, next) {
   const username = req.body.username
   const password = req.body.password
+  let result
 
-  AV.User.logIn(username, password, {
-    success: function(user) {
-      res.json(user)
-    },
-    error: function(user, err) {
-      next(err)
-    }
-  })
+  AV.User.logIn(username, password)
+    .then(function (user) {
+      result = user.toJSON()
+      return getUserRoles(user)
+    })
+    .then(function (roleNames) {
+      result._roles = roleNames
+      res.json(result)
+    })
+    .catch(next)
 }
 
 exports.logout = function(req, res) {
@@ -29,24 +33,12 @@ exports.me = function(req, res, next) {
   let sessionToken = req.AV.user._sessionToken
   let user = req.AV.user
 
-  // Convert AVUser to plain JSON object
   let result = user.toJSON()
   result._sessionToken = sessionToken
 
-  // Query the user's roles
-  let query = new AV.Query(AV.Role)
-  query.equalTo('users', user)
-
-  query.find()
-    .then(roles => {
-      if (!roles) {
-        result._roles = []
-      } else {
-        result._roles = roles.map(role => {
-          return role.get('name')
-        })
-      }
-
+  getUserRoles(user)
+    .then(function (roleNames) {
+      result._roles = roleNames
       res.json(result)
     })
     .catch(next)
