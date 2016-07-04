@@ -2,7 +2,10 @@ const request = require('request-promise')
 export const AV = require('leancloud-storage')
 const config = require('../server/lib/config')
 
-AV.initialize(config.leancloud.APP_ID, config.leancloud.APP_KEY)
+AV.initialize({
+    appId: config.leancloud.APP_ID, 
+    appKey: config.leancloud.APP_KEY
+})
 
 const LC_Request = request.defaults({
     baseUrl: 'https://api.leancloud.cn/1.1',
