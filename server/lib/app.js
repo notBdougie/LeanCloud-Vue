@@ -37,22 +37,24 @@ app.use(AV.Cloud.CookieSession({ secret: config.secret, maxAge: 3600000 * 24 * 5
 // 接收请求头部传递的 Session Token
 app.use((req, res, next) => {
     const sessionToken = req.headers['x-lc-session']
-    
+
     if (!sessionToken || req.AV.user)
       return next()
       
     Logger.debug(`req.AV.user: ${!!req.AV.user}, sessionToken: ${!!sessionToken}`)
       
-    AV.User.become(sessionToken, {
-      success: function(user) {
+    AV.User.become(sessionToken)
+      .then(user => {
         req.AV.user = user
         next()
-      },
-      error: function (err) {
-        Logger.debug(`Cannot become AV.User with token: ${sessionToken}`)
-        next(err)
-      }
-    })
+      })
+      .catch(err => {
+        Logger.debug(`Invalid Leancloud token: ${sessionToken}, error: `, err)
+        next({
+          status: 401,
+          message: err.message
+        })
+      })
 })
 
 // 处理 multipart/form-data
