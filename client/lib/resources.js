@@ -29,7 +29,13 @@ Vue.http.interceptors.push({
   response: function (response) {
     NProgress.done()
     if (response.status === 401) {
-      router.go('/login')
+      let returnUrl = this.$route.query.returnUrl || this.$route.path
+      if (returnUrl === '/login')
+        returnUrl = undefined
+      router.go({
+        path: '/login',
+        query: {returnUrl}
+      })
     }
     return response
   }

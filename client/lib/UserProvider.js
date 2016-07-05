@@ -2,6 +2,7 @@ let currentUser = null
 let vm = null
 
 const UserProvider = {
+  _loadingPromise: null,
   installApp: function (AppVm) {
     vm = AppVm
   },
@@ -14,19 +15,23 @@ const UserProvider = {
     return currentUser
   },
   loadFromServer: function () {
-    return vm.$http.get('me')
-      .then(function (re) {
-        re.data = re.data ? re.data : null
-        UserProvider.setCurrentUser(re.data)
-      })
-      .catch(function (err) {
-        console.error('Failed to login: ', err)
-      })
+    if (!this._loadingPromise) {
+      this._loadingPromise = 
+        vm.$http.get('me')
+          .then(function (re) {
+            re.data = re.data ? re.data : null
+            UserProvider.setCurrentUser(re.data)
+          })
+          .catch(function (err) {
+            console.error('Failed to login: ', err)
+          })
+    }
+    return this._loadingPromise
   },
   logout: function () {
+    UserProvider.setCurrentUser(null)
     return vm.$http.post('logout')
       .then(function () {
-        UserProvider.setCurrentUser(null)
         vm.$router.redirect('/')
       })
       .catch(function (err) {

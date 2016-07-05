@@ -30,13 +30,10 @@
   import '../lib/AutoForm'
   import UserProvider from '../lib/UserProvider'
   export default {
-    data () {
-      return {}
-    },
     events: {
       onFormComplete: function (form, response) {
         UserProvider.setCurrentUser(response.data)
-        this.$router.go('/')
+        this.$router.go(this.$route.query.returnUrl || '/')
       }
     },
     methods: {
