@@ -68,5 +68,6 @@
     "state",
     "visibility"
   ],
-  "version": "2.1.8"
+  "autoInstall": true,
+  "version": "2.2.1"
 }
