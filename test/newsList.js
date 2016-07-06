@@ -1,11 +1,5 @@
 const test = require('ava')
-const AV = require('avoscloud-sdk')
-// const supertest = require('supertest')
-
-const config = require('../server/lib/config')
 const helpers = require('./_helpers')
-
-AV.initialize(config.leancloud.APP_ID, config.leancloud.APP_KEY)
 
 test.before(() => {
     return helpers.loginAll([
