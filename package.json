@@ -1,6 +1,6 @@
 {
   "name": "LeanCloud-Vue-Boilerplate",
-  "version": "0.0.2",
+  "version": 0.1,
   "description": "LeanCloud Vue Boilerplate.",
   "main": "server/index.js",
   "author": {
