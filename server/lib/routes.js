@@ -29,7 +29,7 @@ module.exports = function (app) {
       rewriteRules.push({
         from: /^\/(.)*\..+$/,
         to: function(context) {
-          return config.portalPrefix + context.parsedUrl.pathname
+          return context.parsedUrl.pathname
         }
       })
     }

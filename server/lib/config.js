@@ -12,4 +12,8 @@ const config = _.merge({
 
 config.publicPath = path.join(config.root, '../dist')
 
+// append trailing slash if not added
+let portalPrefix = config.portalPrefix
+config.portalPrefix = portalPrefix + (/.*\/$/.test(portalPrefix) ? '' : '/')
+
 module.exports = config

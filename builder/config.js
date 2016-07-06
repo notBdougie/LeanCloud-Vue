@@ -8,7 +8,7 @@ module.exports = {
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: serverConfig.portalPrefix === '/' ? '/' : (serverConfig.portalPrefix + '/'),
+    assetsPublicPath: serverConfig.portalPrefix,
     productionSourceMap: true
   },
   dev: {
