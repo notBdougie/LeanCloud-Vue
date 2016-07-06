@@ -24,7 +24,7 @@ export default {
       default: () => {return [
         {path: '/', text: '主页', exact: true},
         {path: '/newsList', text: '新闻列表'},
-        {path: '/wronggg', text: '错误地址'}
+        {path: '/wrongPath', text: '错误地址'}
       ]}
     }
   },

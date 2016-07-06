@@ -14,29 +14,44 @@ const router = new VueRouter({
 // Router Map
 router.map({
     '/': {
-        component: require('../components/Home')
+        component: require('../components/Home'),
+        public: true
     },
     '/newsList': {
         component: require('../components/NewsList')
     },
     '/login': {
-        component: require('../components/Login')
+        name: 'login',
+        component: require('../components/Login'),
+        public: true
     },
     '/register': {
-        component: require('../components/Register')
+        component: require('../components/Register'),
+        public: true
     },
     '*': {
-        component: require('../components/NotFound')
+        component: require('../components/NotFound'),
+        public: true
     }
 })
 
-// Redirect to login page if route is not public and user not logged in
-router.beforeEach(function ({to, next}) {
+router.beforeEach(function ({from, to, next}) {
+
     if (to.public)
         return next()
+
+    // Redirect to login page if route is not public and user not logged in
+    let returnUrl
+    if (from.name === 'login')
+        returnUrl = from.query.returnUrl || to.path
+    else if (to.name === 'login')
+        returnUrl = to.query.returnUrl
+    else
+        returnUrl = to.path
     
-    let user = UserProvider.getCurrentUser()
-    if (user) {
+    console.log("returnUrl: ", returnUrl)
+
+    if (UserProvider.getCurrentUser()) {
         // user is logged in
         return next()
     } else {
@@ -45,6 +60,12 @@ router.beforeEach(function ({to, next}) {
             UserProvider.loadFromServer()
                 .then(() => {
                     resolve(!!UserProvider.getCurrentUser())
+
+                    if (!UserProvider.getCurrentUser()) {
+                        Vue.nextTick(() => {
+                            router.go({name: 'login', query: {returnUrl}})
+                        })
+                    }
                 })
                 .catch(() => {
                     resolve(false)
