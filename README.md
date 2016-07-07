@@ -101,6 +101,9 @@ npm run seed
 npm test
 ```
 
+## Changelog
+See [CHANGELOG.md](CHANGELOG.md)
+
 [LeanCloud]: https://leancloud.cn/
 [devtools]: https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd
 [ava]: https://github.com/sindresorhus/ava
