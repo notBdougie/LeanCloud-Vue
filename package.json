@@ -10,7 +10,7 @@
   "repository": {
     "url": "git@github.com:o2team/LeanCloud-Vue-Boilerplate.git"
   },
-  "license": "BSD",
+  "license": "BSD-2-Clause",
   "engines": {
     "node": ">=6.1.0"
   },
