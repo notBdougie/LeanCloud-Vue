@@ -10,18 +10,19 @@ For more, check out the full feature list below:
 
 **Server:**
 
-1. [Node 6.x][node-green] and Express 4.x
+1. [Node][node-green] 6.x | [Express] 4.x
+1. [LeanCloud] integration (compatible with LeanEngine 1.x)
 1. [Webpack] \(with hot reloading)
-1. [LeanCloud] integration
-1. [Babel] \(transform ES6 for browser)
+1. [express-validation] | [Joi] \(powerful request validation)
 1. [Ava] \(asynchronous test runner)
-1. [Bunyan] for logging (`logger` set as a global variable)
-1. Database seeding example (see `scripts/seed` folder)
+1. [Bunyan] for logging (with global variable `Logger`)
+1. Database seeding example (see folder `scripts/seed`)
 
 **Client:**
 
 1. [Vue.js] 1.x (with plugins [vue-resource] and [vue-router])
 1. [Semantic UI][semantic-ui] (for user interface)
+1. [Babel] \(transform ES6 for browsers)
 1. [SASS] support (with autoprefixer)
 
 **Editor:**
@@ -34,15 +35,20 @@ For more, check out the full feature list below:
 ```
 .
 ├── builder           # Build/Start scripts
+|
 ├── client            # Application source code
 │   ├── assets        # Static assets
 │   ├── components    # Vue.js components
 │   ├── extensions    # Vue.js directives or service providers
 │   ├── semantic      # Semantic-UI related code
+│   ├── UI            # UI components
 │   └── main.js       # Application bootstrap
+|
 ├── config            # Project configuration settings
+|
 ├── scripts           # Common scripts
 │   └── seed          # Seeding scripts
+|
 ├── server            # Server source code
 │   ├── api           # Server API
 │   ├── auth          # Authentication middleware
@@ -51,7 +57,9 @@ For more, check out the full feature list below:
 │   ├── models        # Data models
 │   ├── views         # Server rendered views
 │   └── index.js      # Server application entry point
+|
 ├── test              # Unit tests
+|
 └── typings           # Typings definitions
 ```
 
@@ -71,31 +79,26 @@ npm install
 Install [Vue DevTools chrome extension][devtools] and it just works.
 
 
-## Running Dev Server
+## Commands
 
 ```bash
+# Run Dev (Autoreload)
 npm run dev
-```
 
-## Pre-production Testing
-
-```bash
+# Stage Mode (Pre-production Testing)
 npm run stage
-```
 
-## Deployment
+# Start a Production Server
+npm start
 
-```bash
-# Do not run this unless you know what `deploy.sh` does.
-# Details are being revealed soon.
-# Source: https://github.com/X1011/git-directory-deploy
-npm run deploy
-```
+# Build Client Code with Webpack
+npm run build
 
-## Run Seeding Scripts
-
-```bash
+# Run Seeding Scripts
 npm run seed
+
+# Run Test
+npm test
 ```
 
 [LeanCloud]: https://leancloud.cn/
@@ -113,6 +116,9 @@ npm run seed
 [typings]: https://github.com/typings/typings
 [eslint]: http://eslint.org/
 [bunyan]: https://github.com/trentm/node-bunyan
+[express-validation]: https://github.com/AndrewKeig/express-validation
+[Joi]: https://github.com/hapijs/joi
+[Express]: http://expressjs.com/
 
 ## License
 [BSD license](http://opensource.org/licenses/bsd-license.php)
