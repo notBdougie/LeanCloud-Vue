@@ -19,6 +19,10 @@ AV.Cloud.useMasterKey()
 
 app.listen(PORT, function () {
   console.log('\n----------------------------')
-  console.log('Node app is running, \n\tENV: %s, \n\tPORT: %d, \n\tPORTAL PREFIX: %s', config.env, PORT, config.portalPrefix)
+  console.log('Node app is running!')
+  console.log('\tENV: \t%s', config.env)
+  console.log('\tPORT: \t%s', PORT)
+  console.log('\tPORTAL PREFIX: \t%s', config.portalPrefix)
+  console.log('\tNODE VERSION: \t%s', process.version)
   console.log('----------------------------\n')
 })
