@@ -32,7 +32,7 @@ const UserProvider = {
     UserProvider.setCurrentUser(null)
     return vm.$http.post('logout')
       .then(function () {
-        vm.$router.redirect('/')
+        vm.$router.go('/')
       })
       .catch(function (err) {
         console.error('Failed to logout: ', err)
