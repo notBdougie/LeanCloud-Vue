@@ -84,7 +84,7 @@
     "joi": "^8.1.0",
     "js-yaml": "^3.6.0",
     "leancloud-storage": "^1.2.0",
-    "leanengine": "^0.4.0",
+    "leanengine": "^1.1.0",
     "lodash": "^4.11.2",
     "lru-cache": "^4.0.1",
     "moment": "^2.13.0",

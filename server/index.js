@@ -14,7 +14,11 @@ const PORT = parseInt(config.port, 0)
 
 // initialize leanengine
 const AV = require('leanengine')
-AV.initialize(config.leancloud.APP_ID, config.leancloud.APP_KEY, config.leancloud.MASTER_KEY)
+AV.init({
+  appId: config.leancloud.APP_ID, 
+  appKey: config.leancloud.APP_KEY, 
+  masterKey: config.leancloud.MASTER_KEY
+})
 AV.Cloud.useMasterKey()
 
 app.listen(PORT, function () {

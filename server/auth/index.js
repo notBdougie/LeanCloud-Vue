@@ -2,7 +2,7 @@ const Role = require('../common/role')
 
 exports.member = function member (req, res, next) {
   
-  if (!req.AV.user)
+  if (!req.currentUser)
     return next({
       status: 401,
       message: 'Unauthorized'
@@ -15,7 +15,7 @@ exports.admin = roleInspectorFactory('Admin')
 
 function roleInspectorFactory (roleName) {
   return function roleInspector (req, res, next) {
-    let user = req.AV.user
+    let user = req.currentUser
     
     Logger.debug(`Querying role "${roleName}" with userid "${user.getObjectId()}"`)
     Role.isUserBelongTo(user, roleName)

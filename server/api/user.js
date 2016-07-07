@@ -8,6 +8,7 @@ exports.login = function(req, res, next) {
 
   AV.User.logIn(username, password)
     .then(function (user) {
+      res.saveCurrentUser(user)
       result = user.toJSON()
       return getUserRoles(user)
     })
@@ -19,7 +20,8 @@ exports.login = function(req, res, next) {
 }
 
 exports.logout = function(req, res) {
-  AV.User.logOut()
+  req.currentUser.logOut()
+  res.clearCurrentUser()
   res.end()
 }
 
@@ -30,8 +32,8 @@ exports.logout = function(req, res) {
  *  _sessionToken
  */
 exports.me = function(req, res, next) {
-  let sessionToken = req.AV.user._sessionToken
-  let user = req.AV.user
+  let sessionToken = req.currentUser.getSessionToken()
+  let user = req.currentUser
 
   let result = user.toJSON()
   result._sessionToken = sessionToken

@@ -4,8 +4,6 @@ const bodyParser = require('body-parser')
 const path = require('path')
 const AV = require('leanengine')
 const multer = require('multer')
-
-const cloud = require('../common/cloud')
 const config = require('./config')
 
 const app = express()
@@ -17,11 +15,14 @@ app.set('env', config.env)
 app.set('views', path.join(config.root, 'views'))
 app.set('view engine', 'ejs')
 
-// 加载云代码方法
-app.use(cloud)
+app.use(AV.express())
+
+// 加载云函数
+require('../common/cloud')
 
 // 启用 HTTPS（必须要放在 app.use 之后）
 app.enable('trust proxy')
+
 // 如果自部署而不是托管在 LeanCloud 云引擎的话，
 // 建议自己实现重定向 HTTPS 的方法
 app.use(AV.Cloud.HttpsRedirect())
@@ -34,18 +35,18 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // 默认 cookie 5 天后过期
 app.use(AV.Cloud.CookieSession({ secret: config.secret, maxAge: 3600000 * 24 * 5, fetchUser: true }))
 
-// 接收请求头部传递的 Session Token
+// 接收客户端请求头传递的 SessionToken
 app.use((req, res, next) => {
     const sessionToken = req.headers['x-lc-session']
 
-    if (!sessionToken || req.AV.user)
+    if (!sessionToken || req.currentUser)
       return next()
-      
-    Logger.debug(`req.AV.user: ${!!req.AV.user}, sessionToken: ${!!sessionToken}`)
+    
+    Logger.debug(`req.currentUser: ${!!req.currentUser}, sessionToken: ${sessionToken}`)
       
     AV.User.become(sessionToken)
       .then(user => {
-        req.AV.user = user
+        res.saveCurrentUser(user)
         next()
       })
       .catch(err => {
